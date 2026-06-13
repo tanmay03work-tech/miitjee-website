@@ -71,7 +71,7 @@ export default function WhatsAppFAB() {
 
       {/* Ripple ring effect */}
       <motion.div
-        className="absolute inset-0 rounded-full border-2 border-[#25D366]/40"
+        className="absolute inset-0 rounded-full border-2 border-[#25D366]/40 pointer-events-none"
         initial={{ scale: 1, opacity: 0.6 }}
         animate={{
           scale: [1, 1.5, 1.8],
