@@ -37,7 +37,7 @@ export default function FAQSection() {
   ];
 
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24 bg-gray-50/50">
       <div className="max-w-4xl mx-auto px-6">
         <div className="text-center mb-16">
           <motion.h2 
@@ -67,7 +67,7 @@ export default function FAQSection() {
         >
           <Accordion type="single" collapsible className="w-full">
             {faqs.map((faq, index) => (
-              <AccordionItem key={index} value={`item-${index}`} className="border-gray-200">
+              <AccordionItem key={index} value={`item-${index}`} className="border-gray-200 data-[state=open]:bg-white data-[state=open]:rounded-xl data-[state=open]:px-4 data-[state=open]:border data-[state=open]:border-gray-100 data-[state=open]:shadow-sm transition-all duration-200">
                 <AccordionTrigger className="text-left font-heading font-semibold text-lg text-[#23205D] hover:text-[#1C1CA5] hover:no-underline py-6">
                   {faq.question}
                 </AccordionTrigger>

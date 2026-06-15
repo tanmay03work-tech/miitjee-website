@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, Trophy, Stethoscope } from "lucide-react";
+import PageHero from "@/components/ui/PageHero";
 
 export const metadata = {
   title: "Results & Selections | MIITJEE Classes",
@@ -8,17 +9,15 @@ export const metadata = {
 
 export default function ResultsHubPage() {
   return (
-    <div className="min-h-screen bg-gray-50 pt-24 pb-16">
-      <div className="container mx-auto px-4 max-w-5xl">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="font-poppins text-4xl md:text-5xl font-bold text-[#1C1CA5] mb-4">
-            Our Legacy of Success
-          </h1>
-          <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-            Year after year, MIITJEE students achieve top ranks in India's toughest engineering and medical entrance exams.
-          </p>
-        </div>
+    <div className="min-h-screen bg-gray-50">
+      {/* Header */}
+      <PageHero
+        title="Our Legacy of"
+        highlight="Success"
+        description="Year after year, MIITJEE students achieve top ranks in India's toughest engineering and medical entrance exams."
+      />
+
+      <div className="container mx-auto px-4 max-w-5xl mt-16 pb-16">
 
         {/* Aggregate Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
@@ -28,7 +27,7 @@ export default function ResultsHubPage() {
             { label: "NEET Selections", value: "300+" },
             { label: "Top 100 AIRs", value: "50+" },
           ].map((stat, i) => (
-            <div key={i} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 text-center">
+            <div key={i} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 text-center card-hover">
               <div className="text-3xl font-bold text-[#1C1CA5] mb-2 font-poppins">{stat.value}</div>
               <div className="text-sm text-gray-500 font-medium">{stat.label}</div>
             </div>
@@ -38,8 +37,8 @@ export default function ResultsHubPage() {
         {/* Cards */}
         <div className="grid md:grid-cols-2 gap-8">
           {/* JEE Card */}
-          <Link href="/results/jee" className="group block">
-            <div className="bg-white rounded-3xl p-8 border-2 border-transparent hover:border-[#1C1CA5] transition-all duration-300 shadow-md hover:shadow-xl relative overflow-hidden h-full">
+          <Link href="/results/jee" className="group block card-hover">
+            <div className="bg-white rounded-3xl p-8 border-2 border-transparent hover:border-[#1C1CA5] transition-all duration-300 shadow-md relative overflow-hidden h-full">
               <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full -z-10 group-hover:scale-110 transition-transform"></div>
               
               <div className="w-16 h-16 bg-[#1C1CA5]/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
@@ -59,8 +58,8 @@ export default function ResultsHubPage() {
           </Link>
 
           {/* NEET Card */}
-          <Link href="/results/neet" className="group block">
-            <div className="bg-white rounded-3xl p-8 border-2 border-transparent hover:border-[#1C1CA5] transition-all duration-300 shadow-md hover:shadow-xl relative overflow-hidden h-full">
+          <Link href="/results/neet" className="group block card-hover">
+            <div className="bg-white rounded-3xl p-8 border-2 border-transparent hover:border-[#1C1CA5] transition-all duration-300 shadow-md relative overflow-hidden h-full">
               <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full -z-10 group-hover:scale-110 transition-transform"></div>
               
               <div className="w-16 h-16 bg-[#1C1CA5]/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">

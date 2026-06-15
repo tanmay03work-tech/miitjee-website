@@ -23,7 +23,7 @@ const pulseKeyframes: any = {
   scale: [1, 1.08, 1],
   transition: {
     duration: 2,
-    repeat: 2,
+    repeat: 1,
     ease: "easeInOut",
     delay: 2.5,
   },
@@ -79,7 +79,7 @@ export default function WhatsAppFAB() {
         }}
         transition={{
           duration: 2.5,
-          repeat: 3,
+          repeat: 2,
           delay: 2,
           ease: "easeOut",
         }}

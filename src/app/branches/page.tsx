@@ -1,5 +1,6 @@
 import { createClient } from "@/lib/supabase/server";
 import { MapPin, Phone, Mail, MessageCircle } from "lucide-react";
+import PageHero from "@/components/ui/PageHero";
 
 export const metadata = {
   title: "Our Branches | MIITJEE Classes",
@@ -18,25 +19,19 @@ export default async function BranchesPage() {
   return (
     <div className="min-h-screen bg-gray-50 pt-24 pb-16">
       {/* Hero Section */}
-      <div className="bg-[#1C1CA5] text-white py-16 mb-12 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[#23205D] opacity-50 pattern-grid-lg"></div>
-        <div className="container mx-auto px-4 max-w-6xl relative z-10 text-center">
-          <h1 className="font-poppins text-4xl md:text-5xl font-bold mb-4">
-            Our Centers
-          </h1>
-          <p className="text-blue-100 max-w-2xl mx-auto text-lg">
-            Find a MIITJEE center near you. Our state-of-the-art classrooms are equipped to provide the best learning experience.
-          </p>
-        </div>
-      </div>
+      <PageHero
+        title="Our"
+        highlight="Centers"
+        description="Find a MIITJEE center near you. Our state-of-the-art classrooms are equipped to provide the best learning experience."
+      />
 
-      <div className="container mx-auto px-4 max-w-6xl">
+      <div className="container mx-auto px-4 max-w-6xl mt-12">
         {branches && branches.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {branches.map((branch) => (
               <div 
                 key={branch.id} 
-                className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow border border-gray-100 flex flex-col h-full"
+                className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 flex flex-col h-full card-hover"
               >
                 {/* Map Placeholder */}
                 <div className="h-48 w-full bg-gray-200 relative">

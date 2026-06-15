@@ -1,6 +1,7 @@
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import { MessageCircle } from "lucide-react";
 import Link from "next/link";
+import PageHero from "@/components/ui/PageHero";
 
 export const metadata = {
   title: "Frequently Asked Questions | MIITJEE Classes",
@@ -98,16 +99,13 @@ export default function FAQPage() {
   return (
     <div className="min-h-screen bg-gray-50 pt-24 pb-16">
       {/* Header */}
-      <div className="container mx-auto px-4 max-w-4xl text-center mb-16">
-        <h1 className="font-poppins text-4xl md:text-5xl font-bold text-[#1C1CA5] mb-4">
-          Frequently Asked Questions
-        </h1>
-        <p className="text-gray-600 text-lg">
-          Everything you need to know about MIITJEE's programs, admissions, and more.
-        </p>
-      </div>
+      <PageHero
+        title="Frequently Asked"
+        highlight="Questions"
+        description="Everything you need to know about MIITJEE's programs, admissions, and more."
+      />
 
-      <div className="container mx-auto px-4 max-w-4xl">
+      <div className="container mx-auto px-4 max-w-4xl mt-12">
         <div className="space-y-12">
           {FAQ_DATA.map((section, idx) => (
             <div key={idx} className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100">

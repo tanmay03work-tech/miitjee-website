@@ -213,7 +213,7 @@ export default function AdmissionForm() {
             transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" }}
             className="flex-1 w-full min-w-0"
           >
-            <div className="relative bg-white rounded-[28px] shadow-[0_25px_80px_-12px_rgba(0,0,0,0.4)] p-8 sm:p-10 xl:p-12">
+            <div className="relative bg-white rounded-[28px] shadow-2xl shadow-black/20 border border-white/20 p-8 sm:p-10 xl:p-12">
               {/* Decorative accent line at top */}
               <div className="absolute top-0 left-8 right-8 h-[3px] rounded-b-full bg-gradient-to-r from-transparent via-[#1C1CA5] to-transparent" />
 

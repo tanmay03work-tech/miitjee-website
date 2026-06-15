@@ -59,8 +59,11 @@ export default function Footer() {
   return (
     <footer
       id="main-footer"
-      className="bg-brand-blue-deep text-white"
+      className="relative bg-brand-blue-deep text-white"
     >
+      {/* Gradient top divider */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-yellow-bright/40 to-transparent" />
+
       {/* ── Main Footer Content ── */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-16 pb-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
@@ -91,7 +94,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="flex items-center justify-center size-9 rounded-lg bg-white/10 hover:bg-brand-yellow-bright hover:text-brand-blue-deep text-white transition-all duration-200"
+                className="flex items-center justify-center size-9 rounded-lg bg-white/10 hover:bg-brand-yellow-bright hover:text-brand-blue-deep text-white transition-all duration-200 hover:shadow-md hover:shadow-brand-yellow-bright/20"
               >
                 <FacebookIcon className="size-4" />
               </a>
@@ -100,7 +103,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="flex items-center justify-center size-9 rounded-lg bg-white/10 hover:bg-brand-yellow-bright hover:text-brand-blue-deep text-white transition-all duration-200"
+                className="flex items-center justify-center size-9 rounded-lg bg-white/10 hover:bg-brand-yellow-bright hover:text-brand-blue-deep text-white transition-all duration-200 hover:shadow-md hover:shadow-brand-yellow-bright/20"
               >
                 <InstagramIcon className="size-4" />
               </a>
@@ -109,7 +112,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="YouTube"
-                className="flex items-center justify-center size-9 rounded-lg bg-white/10 hover:bg-brand-yellow-bright hover:text-brand-blue-deep text-white transition-all duration-200"
+                className="flex items-center justify-center size-9 rounded-lg bg-white/10 hover:bg-brand-yellow-bright hover:text-brand-blue-deep text-white transition-all duration-200 hover:shadow-md hover:shadow-brand-yellow-bright/20"
               >
                 <YoutubeIcon className="size-4" />
               </a>
@@ -120,6 +123,7 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <h3 className="font-heading text-sm font-semibold uppercase tracking-wider text-brand-yellow-bright mb-4">
               Quick Links
+              <span className="block w-8 h-0.5 bg-brand-yellow-bright/40 rounded-full mt-2" />
             </h3>
             <ul className="space-y-2.5">
               {FOOTER_LINKS.quickLinks.map((link) => (
@@ -139,6 +143,7 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <h3 className="font-heading text-sm font-semibold uppercase tracking-wider text-brand-yellow-bright mb-4">
               Programs
+              <span className="block w-8 h-0.5 bg-brand-yellow-bright/40 rounded-full mt-2" />
             </h3>
             <ul className="space-y-2.5">
               {FOOTER_LINKS.programs.map((link) => (
@@ -158,6 +163,7 @@ export default function Footer() {
           <div className="lg:col-span-3">
             <h3 className="font-heading text-sm font-semibold uppercase tracking-wider text-brand-yellow-bright mb-4">
               Contact
+              <span className="block w-8 h-0.5 bg-brand-yellow-bright/40 rounded-full mt-2" />
             </h3>
             <ul className="space-y-3">
               <li>
@@ -200,6 +206,7 @@ export default function Footer() {
             {/* Branches sub-section */}
             <h3 className="font-heading text-sm font-semibold uppercase tracking-wider text-brand-yellow-bright mt-6 mb-4">
               Branches
+              <span className="block w-8 h-0.5 bg-brand-yellow-bright/40 rounded-full mt-2" />
             </h3>
             <ul className="space-y-2.5">
               {FOOTER_LINKS.branches.map((branch) => (
@@ -220,6 +227,7 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <h3 className="font-heading text-sm font-semibold uppercase tracking-wider text-brand-yellow-bright mb-4">
               Location Map
+              <span className="block w-8 h-0.5 bg-brand-yellow-bright/40 rounded-full mt-2" />
             </h3>
             <div className="rounded-xl overflow-hidden h-48 w-full border border-white/10 bg-white/5 relative group">
               <Link 

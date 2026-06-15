@@ -2,6 +2,7 @@ import { createClient } from "@/lib/supabase/server";
 import Image from "next/image";
 import Link from "next/link";
 import { UserCircle2, Quote, Star } from "lucide-react";
+import PageHero from "@/components/ui/PageHero";
 
 export const metadata = {
   title: "Testimonials | MIITJEE Classes",
@@ -29,19 +30,13 @@ export default async function TestimonialsPage({
   return (
     <div className="min-h-screen bg-gray-50 pt-24 pb-16">
       {/* Hero Section */}
-      <div className="bg-[#1C1CA5] text-white py-16 mb-12 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[#23205D] opacity-50 pattern-grid-lg"></div>
-        <div className="container mx-auto px-4 max-w-6xl relative z-10 text-center">
-          <h1 className="font-poppins text-4xl md:text-5xl font-bold mb-4">
-            Success Stories
-          </h1>
-          <p className="text-blue-100 max-w-2xl mx-auto text-lg">
-            Don't just take our word for it. Hear from the students who achieved their dreams and the parents who trusted us.
-          </p>
-        </div>
-      </div>
+      <PageHero
+        title="Success"
+        highlight="Stories"
+        description="Don't just take our word for it. Hear from the students who achieved their dreams and the parents who trusted us."
+      />
 
-      <div className="container mx-auto px-4 max-w-6xl">
+      <div className="container mx-auto px-4 max-w-6xl mt-12">
         {/* Filter Tabs */}
         <div className="flex justify-center gap-4 mb-12">
           <Link
@@ -71,7 +66,7 @@ export default async function TestimonialsPage({
             {testimonials.map((testimonial) => (
               <div 
                 key={testimonial.id} 
-                className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-shadow border border-gray-100 relative group"
+                className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 relative group card-hover"
               >
                 <Quote className="absolute top-6 right-6 w-12 h-12 text-blue-50 group-hover:text-blue-100 transition-colors -z-0" />
                 

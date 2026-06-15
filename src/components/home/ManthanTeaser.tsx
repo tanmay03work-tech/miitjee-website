@@ -59,7 +59,7 @@ export default function ManthanTeaser() {
         >
           <Link 
             href="/scholarship" 
-            className="inline-flex items-center gap-2 px-8 py-4 bg-white hover:bg-gray-50 text-[#23205D] font-heading font-bold rounded-full transition-colors group text-lg shadow-xl"
+            className="shimmer-btn inline-flex items-center gap-2 px-8 py-4 bg-white hover:bg-gray-50 text-[#23205D] font-heading font-bold rounded-full transition-all group text-lg shadow-xl hover:shadow-2xl hover:scale-[1.02]"
           >
             Register Interest
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

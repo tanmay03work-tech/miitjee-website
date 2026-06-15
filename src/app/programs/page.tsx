@@ -3,79 +3,113 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { Breadcrumb } from '@/components/ui/breadcrumb';
-import { BookOpen, Stethoscope, GraduationCap, ArrowRight } from 'lucide-react';
+import { BookOpen, Stethoscope, GraduationCap, ArrowRight, BookMarked, Layers } from 'lucide-react';
+import PageHero from '@/components/ui/PageHero';
 
 const programs = [
   {
-    id: 'jee',
-    title: 'JEE Main + Advanced',
-    description: 'Comprehensive preparation for engineering entrance exams with focus on problem-solving and conceptual clarity.',
+    id: 'elevator',
+    title: 'Elevator',
+    subtitle: 'JEE Main + Advanced',
+    description: '2 year integrated classroom program for 11th + 12th Board cum JEE Main + JEE Advanced.',
+    icon: Layers,
+    href: '/programs/jee',
+    color: 'text-brand-blue-deep',
+    bg: 'bg-brand-blue-deep/10'
+  },
+  {
+    id: 'navigator',
+    title: 'Navigator',
+    subtitle: 'JEE Main + Advanced',
+    description: '1 year extensive classroom program for JEE Main + JEE Advanced.',
     icon: BookOpen,
     href: '/programs/jee',
-    features: [
-      'Extensive Coverage of Physics, Chemistry & Maths',
-      'Regular Mock Tests & Analysis',
-      'Personalized Doubt Clearing Sessions',
-    ],
+    color: 'text-brand-blue-deep',
+    bg: 'bg-brand-blue-deep/10'
   },
   {
-    id: 'neet',
-    title: 'NEET Medical',
-    description: 'Specialized coaching for medical aspirants with intensive focus on Biology, Physics, and Chemistry.',
+    id: 'propeller',
+    title: 'Propeller',
+    subtitle: 'JEE Main + Advanced',
+    description: '1 year intensive classroom program for 12th Board cum JEE Main + JEE Advanced.',
+    icon: BookMarked,
+    href: '/programs/jee',
+    color: 'text-brand-blue-deep',
+    bg: 'bg-brand-blue-deep/10'
+  },
+  {
+    id: 'pmt-genesis',
+    title: 'PMT Genesis',
+    subtitle: 'NEET',
+    description: '2 year integrated classroom program for 11th + 12th Board cum NEET.',
     icon: Stethoscope,
     href: '/programs/neet',
-    features: [
-      'NCERT-focused Curriculum',
-      'Weekly Practice Tests (AITS)',
-      'Expert Faculty Support',
-    ],
+    color: 'text-rose-600',
+    bg: 'bg-rose-100'
   },
   {
-    id: 'foundation',
-    title: 'Foundation (Class 6-10)',
-    description: 'Early preparation for NTSE, Olympiads, and building a strong base for future JEE/NEET endeavors.',
+    id: 'pmt-synchronizer',
+    title: 'PMT Synchronizer',
+    subtitle: 'NEET',
+    description: '1 year intensive classroom program for 12th Board cum NEET.',
+    icon: Stethoscope,
+    href: '/programs/neet',
+    color: 'text-rose-600',
+    bg: 'bg-rose-100'
+  },
+  {
+    id: 'pmt-booster',
+    title: 'PMT Booster',
+    subtitle: 'NEET',
+    description: '1 year extensive classroom program for NEET.',
+    icon: Stethoscope,
+    href: '/programs/neet',
+    color: 'text-rose-600',
+    bg: 'bg-rose-100'
+  },
+  {
+    id: 'prodigy',
+    title: 'PRODIGY',
+    subtitle: 'Foundation (9th & 10th)',
+    description: 'Foundation classroom program for 9th and 10th Board Exams (CBSE, ICSE, JAC).',
     icon: GraduationCap,
     href: '/programs/foundation',
-    features: [
-      'Strong Conceptual Base',
-      'Preparation for School & Competitive Exams',
-      'Mental Ability & Logical Reasoning Focus',
-    ],
+    color: 'text-brand-yellow-bright',
+    bg: 'bg-brand-yellow-bright/20'
   },
+  {
+    id: 'exceller',
+    title: 'Exceller',
+    subtitle: 'Foundation (7th & 8th)',
+    description: 'Fundamental classroom program for class 7th and 8th Board Exams (CBSE, ICSE, JAC).',
+    icon: GraduationCap,
+    href: '/programs/foundation',
+    color: 'text-brand-yellow-bright',
+    bg: 'bg-brand-yellow-bright/20'
+  }
 ];
 
 export default function ProgramsOverviewPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 pb-20">
       {/* Hero Section */}
-      <section className="bg-[#1C1CA5] text-white pt-24 pb-16">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <Breadcrumb 
-            items={[
-              { label: 'Home', href: '/' },
-              { label: 'Programs' }
-            ]} 
-          />
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="mt-8"
-          >
-            <h1 className="text-4xl md:text-5xl font-poppins font-bold mb-6">
-              Our Academic <span className="text-[#FEFD12]">Programmes</span>
-            </h1>
-            <p className="text-lg md:text-xl font-inter max-w-2xl text-blue-100">
-              Discover our structured and comprehensive courses designed to help you achieve top ranks in competitive examinations.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <PageHero
+        title="Our Academic"
+        highlight="Programmes"
+        description="Discover our structured and comprehensive courses designed to help you achieve top ranks in competitive examinations."
+      >
+        <Breadcrumb 
+          items={[
+            { label: 'Home', href: '/' },
+            { label: 'Programs' }
+          ]} 
+        />
+      </PageHero>
 
       {/* Programs Grid */}
-      <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <section className="pt-20">
+        <div className="container mx-auto px-4 max-w-7xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {programs.map((program, index) => {
               const Icon = program.icon;
               return (
@@ -84,35 +118,32 @@ export default function ProgramsOverviewPage() {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden flex flex-col hover:shadow-xl transition-shadow duration-300"
+                  transition={{ duration: 0.5, delay: (index % 4) * 0.1 }}
+                  className="bg-white rounded-3xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100 overflow-hidden flex flex-col group relative"
                 >
                   <div className="p-8 flex-grow">
-                    <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mb-6 text-[#1C1CA5]">
+                    <div className={`w-14 h-14 ${program.bg} rounded-2xl flex items-center justify-center mb-6 ${program.color} group-hover:scale-110 transition-transform`}>
                       <Icon size={28} />
                     </div>
-                    <h2 className="text-2xl font-poppins font-bold text-[#23205D] mb-4">
+                    <div className="mb-2">
+                      <span className={`text-xs font-bold uppercase tracking-wider ${program.color}`}>
+                        {program.subtitle}
+                      </span>
+                    </div>
+                    <h2 className="text-2xl font-poppins font-bold text-brand-blue-dark mb-4">
                       {program.title}
                     </h2>
-                    <p className="text-gray-600 font-inter mb-6">
+                    <p className="text-gray-600 text-sm leading-relaxed mb-6">
                       {program.description}
                     </p>
-                    <ul className="space-y-3 mb-8">
-                      {program.features.map((feature, i) => (
-                        <li key={i} className="flex items-start">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#1C1CA5] mt-2 mr-3 flex-shrink-0" />
-                          <span className="text-sm font-inter text-gray-700">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
                   </div>
                   <div className="p-6 bg-gray-50 border-t border-gray-100 mt-auto">
                     <Link 
                       href={program.href}
-                      className="flex items-center justify-center w-full py-3 px-4 bg-white border border-[#1C1CA5] text-[#1C1CA5] font-semibold rounded-lg hover:bg-[#1C1CA5] hover:text-white transition-colors duration-300 group"
+                      className="flex items-center justify-center w-full py-3 px-4 bg-white border border-brand-blue-deep text-brand-blue-deep font-bold rounded-xl hover:bg-brand-blue-deep hover:text-white transition-colors duration-300 group/btn"
                     >
-                      Learn More 
-                      <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                      View Details 
+                      <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
                     </Link>
                   </div>
                 </motion.div>

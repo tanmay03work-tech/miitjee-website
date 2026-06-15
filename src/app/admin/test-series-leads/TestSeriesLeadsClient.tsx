@@ -11,13 +11,11 @@ type TestSeriesLead = Database['public']['Tables']['test_series_leads']['Row']
 export function TestSeriesLeadsClient({ initialLeads }: { initialLeads: TestSeriesLead[] }) {
   const [leads] = useState<TestSeriesLead[]>(initialLeads)
   const [search, setSearch] = useState('')
-  const [classFilter, setClassFilter] = useState('All')
 
   const filteredLeads = leads.filter(l => {
     const matchesSearch = l.name.toLowerCase().includes(search.toLowerCase()) || 
                           l.phone.includes(search)
-    const matchesClass = classFilter === 'All' || l.class_level === classFilter
-    return matchesSearch && matchesClass
+    return matchesSearch
   })
 
   return (
@@ -42,16 +40,6 @@ export function TestSeriesLeadsClient({ initialLeads }: { initialLeads: TestSeri
             className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue focus:border-transparent"
           />
         </div>
-        <select 
-          value={classFilter} 
-          onChange={(e) => setClassFilter(e.target.value)}
-          className="border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-blue focus:border-transparent"
-        >
-          <option value="All">All Classes</option>
-          <option value="Class 11">Class 11</option>
-          <option value="Class 12">Class 12</option>
-          <option value="Dropper (ReNEET)">Dropper (ReNEET)</option>
-        </select>
       </div>
 
       <DataTable 
@@ -68,10 +56,7 @@ export function TestSeriesLeadsClient({ initialLeads }: { initialLeads: TestSeri
             </div>
           )},
           { header: 'Email', accessorKey: 'email' },
-          { header: 'Class', accessorKey: 'class_level' },
-          { header: 'Target Year', accessorKey: 'target_year' },
-          { header: 'City', accessorKey: 'city' },
-          { header: 'Branch Pref', cell: (l) => l.branch_pref || '-' },
+          { header: 'Series Type', accessorKey: 'series_type' },
           { header: 'Date', cell: (l) => l.created_at ? new Date(l.created_at).toLocaleDateString('en-IN') : '-' }
         ]}
       />

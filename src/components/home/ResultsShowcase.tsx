@@ -56,9 +56,10 @@ export default function ResultsShowcase({ results }: ResultsShowcaseProps) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="min-w-[280px] sm:min-w-0 bg-gray-50 rounded-2xl p-6 flex flex-col items-center text-center border border-gray-100 hover:shadow-xl transition-shadow snap-center"
+              className="min-w-[280px] sm:min-w-0 bg-gray-50 rounded-2xl p-6 flex flex-col items-center text-center border border-gray-100 card-hover snap-center"
             >
-              <div className="w-24 h-24 rounded-full overflow-hidden bg-gray-200 mb-4 border-4 border-white shadow-sm flex items-center justify-center">
+              <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[#1C1CA5] to-[#FEFD12] p-[3px] mb-4 shadow-sm">
+                <div className="w-full h-full rounded-full overflow-hidden bg-gray-200 flex items-center justify-center">
                 {result.photo_url ? (
                   <Image 
                     src={result.photo_url} 
@@ -70,6 +71,7 @@ export default function ResultsShowcase({ results }: ResultsShowcaseProps) {
                 ) : (
                   <User className="w-10 h-10 text-gray-400" />
                 )}
+                </div>
               </div>
               
               <h3 className="text-lg font-bold font-heading text-[#23205D] mb-1">
@@ -81,7 +83,7 @@ export default function ResultsShowcase({ results }: ResultsShowcaseProps) {
               </div>
               
               {result.rank_score && (
-                <div className="mt-auto inline-block bg-[#FEFD12]/20 text-[#23205D] px-4 py-1.5 rounded-full font-bold font-sans">
+                <div className="mt-auto inline-block bg-[#FEFD12]/20 text-[#23205D] px-4 py-1.5 rounded-full font-bold font-sans shadow-sm shadow-[#FEFD12]/10">
                   {result.rank_score}
                 </div>
               )}

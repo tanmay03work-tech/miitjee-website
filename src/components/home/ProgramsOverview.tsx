@@ -79,9 +79,11 @@ export default function ProgramsOverview() {
             <motion.div 
               key={i}
               variants={cardVariants}
-              className="group bg-white border border-gray-100 rounded-2xl p-8 shadow-sm hover:shadow-xl hover:border-[#1C1CA5] transition-all duration-300 flex flex-col h-full"
+              className="group bg-white border border-gray-100 rounded-2xl p-8 shadow-sm hover:shadow-xl hover:border-transparent transition-all duration-300 flex flex-col h-full relative overflow-hidden"
             >
-              <div className={`w-14 h-14 rounded-xl ${prog.bg} flex items-center justify-center mb-6`}>
+              {/* Top accent bar on hover */}
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#1C1CA5] to-[#FEFD12] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-t-2xl" />
+              <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${prog.bg} flex items-center justify-center mb-6 group-hover:scale-105 transition-transform duration-300`}>
                 <prog.icon className={`w-7 h-7 ${prog.color}`} />
               </div>
               

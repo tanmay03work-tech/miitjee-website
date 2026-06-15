@@ -44,7 +44,7 @@ export default function TestSeriesCTA() {
             
             <Link 
               href="/test-series/neet" 
-              className="inline-flex items-center gap-2 px-8 py-4 bg-[#FEFD12] hover:bg-[#E5E410] text-[#23205D] font-heading font-bold rounded-full transition-colors group text-lg shadow-sm"
+              className="shimmer-btn inline-flex items-center gap-2 px-8 py-4 bg-[#FEFD12] hover:bg-[#E5E410] text-[#23205D] font-heading font-bold rounded-full transition-all group text-lg shadow-md shadow-[#FEFD12]/15 hover:shadow-lg hover:shadow-[#FEFD12]/25 hover:scale-[1.02]"
             >
               Download Free Papers
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

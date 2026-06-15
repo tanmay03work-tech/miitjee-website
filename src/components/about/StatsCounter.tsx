@@ -42,11 +42,11 @@ function Counter({ end, duration = 2, suffix = "", prefix = "", label }: Counter
   }, [isInView, end, duration]);
 
   return (
-    <div ref={ref} className="flex flex-col items-center justify-center p-6 text-center">
-      <div className="text-4xl md:text-5xl font-bold text-miitjee-navy mb-2 font-poppins">
+    <div ref={ref} className="flex flex-col items-center justify-center p-6 text-center card-hover bg-white/5 border border-white/10 rounded-2xl">
+      <div className="text-4xl md:text-5xl font-bold text-[#FEFD12] mb-2 font-poppins drop-shadow-[0_0_15px_rgba(254,253,18,0.5)]">
         {prefix}{count}{suffix}
       </div>
-      <div className="text-sm md:text-base text-gray-600 font-medium tracking-wide uppercase">
+      <div className="text-sm md:text-base text-blue-100/80 font-medium tracking-wide uppercase">
         {label}
       </div>
     </div>
@@ -62,8 +62,9 @@ export default function StatsCounter() {
   ];
 
   return (
-    <section className="py-16 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 relative bg-gradient-to-br from-[#1C1CA5] to-[#23205D] overflow-hidden">
+      <div className="absolute inset-0 dot-grid opacity-50" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((stat, index) => (
             <motion.div

@@ -1,6 +1,7 @@
 import { createClient } from "@/lib/supabase/server";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import ContactForm from "./contact-form";
+import PageHero from "@/components/ui/PageHero";
 
 export const metadata = {
   title: "Contact Us | MIITJEE Classes",
@@ -19,19 +20,13 @@ export default async function ContactPage() {
   return (
     <div className="min-h-screen bg-gray-50 pt-24 pb-16">
       {/* Hero Section */}
-      <div className="bg-[#23205D] text-white py-16 mb-12 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[#1C1CA5]/20 pattern-grid-lg"></div>
-        <div className="container mx-auto px-4 max-w-6xl relative z-10 text-center">
-          <h1 className="font-poppins text-4xl md:text-5xl font-bold mb-4">
-            Contact Us
-          </h1>
-          <p className="text-gray-300 max-w-2xl mx-auto text-lg">
-            We're here to help. Reach out to us for any queries regarding admissions, courses, or counseling.
-          </p>
-        </div>
-      </div>
+      <PageHero
+        title="Contact"
+        highlight="Us"
+        description="We're here to help. Reach out to us for any queries regarding admissions, courses, or counseling."
+      />
 
-      <div className="container mx-auto px-4 max-w-6xl">
+      <div className="container mx-auto px-4 max-w-6xl mt-12">
         <div className="flex flex-col lg:flex-row gap-12">
           
           {/* Left Column: Contact Info & Branches */}
@@ -43,7 +38,7 @@ export default async function ContactPage() {
             <div className="space-y-8">
               {branches && branches.length > 0 ? (
                 branches.map((branch) => (
-                  <div key={branch.id} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col md:flex-row gap-6">
+                  <div key={branch.id} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col md:flex-row gap-6 card-hover">
                     <div className="md:w-2/3">
                       <h3 className="font-poppins font-bold text-xl text-[#1C1CA5] mb-1">
                         {branch.name}

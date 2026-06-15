@@ -49,6 +49,60 @@ export interface NavChild {
 
 export const NAV_ITEMS: NavItem[] = [
   {
+    label: "About Us",
+    href: "/about",
+    children: [
+      {
+        label: "About MIITJEE",
+        href: "/about",
+        icon: "🏢",
+        description: "Our story, mission, and vision",
+      },
+      {
+        label: "Director's Message",
+        href: "/about/director-message",
+        icon: "👨‍🏫",
+        description: "Message from the Director",
+      },
+      {
+        label: "Why MIITJEE",
+        href: "/about/why-miitjee",
+        icon: "⭐",
+        description: "What makes us different",
+      },
+      {
+        label: "Franchise Opportunities",
+        href: "/about/franchise-opportunities",
+        icon: "🤝",
+        description: "Partner with us",
+      },
+      {
+        label: "Methodology & Concept",
+        href: "/about/methodology",
+        icon: "🧠",
+        description: "Our teaching methodology",
+      },
+      {
+        label: "Success Stories",
+        href: "/about/success-stories",
+        icon: "🏆",
+        description: "Achievements of our students",
+      },
+      {
+        label: "Faculty",
+        href: "/about/faculty",
+        icon: "👥",
+        description: "Our expert teachers",
+      },
+      {
+        label: "Other Centres",
+        href: "/about/other-centres",
+        icon: "📍",
+        description: "Our network of centres",
+      },
+    ],
+  },
+  {
     label: "Programs",
     href: "/programs",
     children: [
@@ -100,10 +154,6 @@ export const NAV_ITEMS: NavItem[] = [
   {
     label: "Scholarship",
     href: "/scholarship",
-  },
-  {
-    label: "Faculty",
-    href: "/faculty",
   },
   {
     label: "Branches",

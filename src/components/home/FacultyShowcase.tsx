@@ -55,19 +55,21 @@ export default function FacultyShowcase({ faculty }: FacultyShowcaseProps) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="group text-center"
+              className="group text-center card-hover"
             >
-              <div className="relative w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden bg-gray-100 border-4 border-white shadow-lg group-hover:border-[#1C1CA5] transition-colors flex items-center justify-center">
+              <div className="relative w-48 h-48 mx-auto mb-6 rounded-full p-[3px] bg-gradient-to-br from-gray-200 to-gray-100 group-hover:from-[#1C1CA5] group-hover:to-[#FEFD12] transition-all duration-500 shadow-lg">
+                <div className="w-full h-full rounded-full overflow-hidden bg-gray-100 flex items-center justify-center">
                 {member.photo_url ? (
                   <Image 
                     src={member.photo_url} 
                     alt={member.name} 
                     fill
-                    className="object-cover"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 ) : (
                   <User className="w-20 h-20 text-gray-300" />
                 )}
+                </div>
               </div>
               
               <h3 className="text-2xl font-bold font-heading text-[#23205D] mb-1">

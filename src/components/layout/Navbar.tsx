@@ -121,7 +121,7 @@ function DesktopDropdown({
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="absolute top-full left-0 mt-1 w-72 rounded-xl bg-white shadow-xl shadow-black/8 border border-gray-100 overflow-hidden z-50"
+            className="absolute top-full left-0 mt-1 w-72 rounded-xl bg-white shadow-xl shadow-black/8 border border-gray-100 border-t-2 border-t-brand-yellow-bright overflow-hidden z-50"
           >
             <div className="p-2">
               {item.children.map((child) => (
@@ -373,10 +373,10 @@ export default function Navbar() {
   return (
     <header
       id="main-navbar"
-      className={`sticky top-0 z-50 w-full bg-white border-b border-brand-blue-dark transition-shadow duration-300 ${
+      className={`sticky top-0 z-50 w-full border-b border-brand-blue-dark/20 transition-all duration-300 ${
         scrolled
-          ? "shadow-md shadow-black/5"
-          : "shadow-none"
+          ? "glass shadow-lg shadow-black/5"
+          : "bg-white shadow-none"
       }`}
     >
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -392,7 +392,7 @@ export default function Navbar() {
               alt="MIITJEE Logo"
               width={180}
               height={54}
-              className="h-12 w-auto object-contain"
+              className={`w-auto object-contain transition-all duration-300 ${scrolled ? 'h-10' : 'h-12'}`}
               priority
             />
           </Link>
@@ -446,7 +446,7 @@ export default function Navbar() {
             <Link
               href="/apply"
               id="navbar-apply-btn"
-              className="inline-flex items-center px-5 py-2.5 text-sm font-heading font-bold bg-brand-yellow-bright text-brand-blue-deep rounded-lg hover:bg-brand-yellow-bright/80 transition-all hover:shadow-md hover:shadow-brand-yellow-bright/25 active:scale-[0.98]"
+              className="shimmer-btn inline-flex items-center px-5 py-2.5 text-sm font-heading font-bold bg-brand-yellow-bright text-brand-blue-deep rounded-lg hover:bg-brand-yellow-bright/90 transition-all shadow-sm shadow-brand-yellow-bright/20 hover:shadow-md hover:shadow-brand-yellow-bright/30 active:scale-[0.98]"
             >
               Apply Now
             </Link>

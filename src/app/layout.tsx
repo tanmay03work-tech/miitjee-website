@@ -81,7 +81,7 @@ export default async function RootLayout({
       suppressHydrationWarning
       data-scroll-behavior="smooth"
     >
-      <body className="min-h-full flex flex-col font-sans">
+      <body className="min-h-full flex flex-col font-sans" suppressHydrationWarning>
         {announcementText && <AnnouncementBar text={announcementText} />}
         <Navbar />
         <main className="flex-1">{children}</main>

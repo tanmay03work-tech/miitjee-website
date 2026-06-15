@@ -38,8 +38,12 @@ export default function WhyMiitjee() {
   ];
 
   return (
-    <section className="py-24 bg-[#23205D] text-white">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="relative py-24 bg-[#23205D] text-white overflow-hidden">
+      {/* Background depth */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#1C1CA5]/15 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#FEFD12]/5 rounded-full blur-[120px] pointer-events-none" />
+      
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -68,9 +72,9 @@ export default function WhyMiitjee() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-colors"
+              className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 hover:border-[#FEFD12]/30 hover:shadow-lg hover:shadow-[#FEFD12]/5 transition-all duration-300"
             >
-              <div className="w-12 h-12 rounded-full bg-[#FEFD12]/20 flex items-center justify-center mb-6">
+              <div className="w-12 h-12 rounded-full bg-[#FEFD12]/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                 <feat.icon className="w-6 h-6 text-[#FEFD12]" />
               </div>
               <h3 className="text-xl font-bold font-heading mb-3">
