@@ -33,7 +33,7 @@ export default function WhatsAppFAB() {
   const [showTooltip, setShowTooltip] = useState(false);
 
   return (
-    <div className="fixed bottom-6 right-6 z-50" id="whatsapp-fab">
+    <div className="fixed bottom-24 md:bottom-6 right-6 z-50" id="whatsapp-fab">
       {/* Tooltip */}
       {showTooltip && (
         <motion.div

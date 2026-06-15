@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Inter, Poppins } from "next/font/google";
+import { Inter, Montserrat } from "next/font/google";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import WhatsAppFAB from "@/components/layout/WhatsAppFAB";
 import AnnouncementBar from "@/components/layout/AnnouncementBar";
+import MobileStickyCTA from "@/components/layout/MobileStickyCTA";
 import { Analytics } from "@vercel/analytics/react";
 import { createClient } from "@/lib/supabase/server";
 import "./globals.css";
@@ -17,9 +18,9 @@ const inter = Inter({
   display: "swap",
 });
 
-const poppins = Poppins({
-  variable: "--font-poppins",
-  weight: ["400", "500", "600", "700"],
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
+  weight: ["600", "700", "800", "900"],
   subsets: ["latin"],
   display: "swap",
 });
@@ -33,13 +34,13 @@ export const metadata: Metadata = {
     template: "%s | MIITJEE",
   },
   description:
-    "MIITJEE is Jharkhand's leading coaching institute for JEE Main, JEE Advanced, NEET, and Foundation programmes (Class 6–12). Expert IITian faculty, proven results, and personalised mentoring. Centres in Jamshedpur, Bokaro & Dhanbad.",
+    "MIITJEE is Jharkhand's leading coaching institute for JEE Main, JEE Advanced, NEET, and Foundation programmes (Class 6–12). Expert IITian faculty, proven results, and personalised mentoring. Centres in Jamshedpur and Ranchi.",
   keywords: [
     "MIITJEE",
     "JEE coaching Jamshedpur",
     "NEET coaching Jharkhand",
     "IIT JEE preparation",
-    "NEET preparation Bokaro",
+    "NEET preparation Ranchi",
     "foundation coaching",
     "best coaching institute Jharkhand",
   ],
@@ -77,7 +78,7 @@ export default async function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${poppins.variable} h-full antialiased scroll-smooth`}
+      className={`${inter.variable} ${montserrat.variable} h-full antialiased scroll-smooth`}
       suppressHydrationWarning
       data-scroll-behavior="smooth"
     >
@@ -86,6 +87,7 @@ export default async function RootLayout({
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
+        <MobileStickyCTA />
         <WhatsAppFAB />
         <Analytics />
       </body>

@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { CheckCircle2 } from 'lucide-react';
 import { NEET_MOCK_PAPERS } from '@/lib/constants/mock-papers';
 import { MockPaperCard } from '@/components/test-series/MockPaperCard';
 
@@ -9,66 +8,83 @@ export const metadata = {
 };
 
 export default function NeetLandingPage() {
-  const features = [
-    '180 Questions per paper',
-    'NTA 2024 syllabus',
-    'Answer key + solutions',
-    'All 5 papers in one download',
-    'Prepared by MIITJEE expert faculty'
+  const featurePills = [
+    '180 Questions',
+    '720 Marks',
+    'Answer Keys'
   ];
 
   return (
-    <div className="min-h-screen bg-white font-inter">
-      {/* Hero Section */}
-      <section className="bg-[#1C1CA5] text-white pt-20 pb-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-        {/* Abstract Background shapes */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600 rounded-full blur-[120px] opacity-20 -mr-40 -mt-40 pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#FEFD12] rounded-full blur-[100px] opacity-10 -ml-20 -mb-20 pointer-events-none" />
-
-        <div className="max-w-4xl mx-auto text-center relative z-10">
-          <div className="inline-block bg-blue-800 text-blue-100 text-sm font-semibold px-4 py-1.5 rounded-full mb-6 border border-blue-700">
-            🩺 NEET ReNEET Preparation
+    <div className="min-h-screen font-body bg-[var(--navy)]">
+      {/* ── HERO SECTION ── */}
+      <section 
+        className="relative flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20 min-h-[65vh] overflow-hidden"
+        style={{ background: 'linear-gradient(135deg, var(--navy) 60%, #1a0a0a 100%)' }}
+      >
+        <div className="max-w-4xl mx-auto text-center relative z-10 w-full">
+          {/* Top Badge */}
+          <div className="inline-flex items-center justify-center bg-red-600/20 text-red-500 font-bold text-[13px] tracking-wide px-4 py-1.5 rounded-full mb-8 border border-red-500/30 shadow-[0_0_15px_rgba(239,68,68,0.2)]">
+            🩺 FREE FOR ALL NEET ASPIRANTS
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-poppins mb-6 leading-tight">
-            5 FREE NEET Mock <br className="hidden md:block" /> Test Papers
+
+          {/* H1 */}
+          <h1 className="text-4xl md:text-5xl lg:text-[64px] font-display font-black leading-[1.1] mb-6 text-white">
+            5 FREE NEET Mock <br className="hidden md:block" /> 
+            <span className="text-[var(--gold)]">Test Papers</span>
           </h1>
-          <h2 className="text-xl md:text-2xl text-[#FEFD12] font-medium mb-10 max-w-3xl mx-auto">
-            By MIITJEE Faculty · Absolutely Free · Instant Access
+
+          {/* Subtext */}
+          <h2 className="text-lg md:text-xl text-white/80 font-medium mb-10 max-w-2xl mx-auto">
+            By MIITJEE Faculty · Perfect Practice for Re-NEET (21st June) · Instant Access
           </h2>
 
-          <div className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-4 md:gap-8 mb-12 text-left sm:text-center md:text-left">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
-              {features.map((feature, idx) => (
-                <div key={idx} className="flex items-center text-blue-50">
-                  <CheckCircle2 className="w-5 h-5 text-[#FEFD12] mr-3 flex-shrink-0" />
-                  <span>{feature}</span>
-                </div>
-              ))}
-            </div>
+          {/* Feature Pills */}
+          <div className="flex flex-wrap justify-center items-center gap-3 md:gap-4 mb-14">
+            {featurePills.map((pill, idx) => (
+              <span 
+                key={idx} 
+                className="inline-flex items-center border border-white/30 text-white font-semibold text-[14px] px-5 py-2 rounded-full bg-white/5 backdrop-blur-sm"
+              >
+                {pill}
+              </span>
+            ))}
           </div>
 
+          {/* Social Proof & CTA */}
           <div className="flex flex-col items-center">
+            {/* Social Proof */}
+            <div className="mb-8 font-display flex flex-col items-center">
+              <span className="text-4xl md:text-5xl font-black text-[var(--gold)] drop-shadow-[0_0_20px_rgba(255,214,0,0.3)] tracking-tight">
+                2,400+
+              </span>
+              <span className="text-sm md:text-base font-bold text-white/70 uppercase tracking-[2px] mt-2">
+                students downloaded
+              </span>
+            </div>
+
+            {/* CTA Button */}
             <Link
               href="/test-series/neet/register"
-              className="inline-flex items-center justify-center bg-[#FEFD12] hover:bg-yellow-400 text-[#23205D] text-lg font-bold font-poppins px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 w-full sm:w-auto"
+              className="inline-flex items-center justify-center bg-[var(--gold)] hover:bg-yellow-400 text-[var(--navy)] text-lg md:text-xl font-display font-extrabold px-10 py-5 rounded-full shadow-[0_0_30px_rgba(255,214,0,0.4)] hover:shadow-[0_0_40px_rgba(255,214,0,0.6)] hover:-translate-y-1 transition-all w-full sm:w-auto"
             >
               Download All 5 Papers Free →
             </Link>
-            <p className="mt-4 text-blue-200 text-sm font-medium">
-              Already downloaded by 2,400+ students
+            
+            <p className="mt-5 text-white/50 text-[13px] font-medium tracking-wide">
+              No login required · No spam · Instant PDF
             </p>
           </div>
         </div>
       </section>
 
-      {/* Mock Papers Grid Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50">
+      {/* ── MOCK PAPERS GRID SECTION ── */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50 relative z-10">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold font-poppins text-[#23205D] mb-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-[var(--navy)] mb-4">
               What&apos;s Inside
             </h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               You will get immediate access to all 5 full-syllabus mock papers covering Physics, Chemistry, and Biology.
             </p>
           </div>
@@ -87,19 +103,18 @@ export default function NeetLandingPage() {
         </div>
       </section>
 
-      {/* Bottom CTA */}
-      <section className="bg-[#23205D] py-16 px-4 sm:px-6 lg:px-8 text-center relative overflow-hidden">
-         <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5"></div>
+      {/* ── BOTTOM CTA ── */}
+      <section className="bg-[#060E1C] py-24 px-4 sm:px-6 lg:px-8 text-center relative overflow-hidden border-t border-[var(--navy-light)]">
         <div className="max-w-3xl mx-auto relative z-10">
-          <h2 className="text-3xl font-bold font-poppins text-white mb-6">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-6">
             Ready to start your NEET preparation?
           </h2>
-          <p className="text-blue-100 text-lg mb-8">
+          <p className="text-[var(--text-muted)] text-lg mb-10">
             Fill your details and get all 5 papers instantly — completely free.
           </p>
           <Link
             href="/test-series/neet/register"
-            className="inline-flex items-center justify-center bg-[#FEFD12] hover:bg-yellow-400 text-[#23205D] text-lg font-bold font-poppins px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all"
+            className="inline-flex items-center justify-center bg-[var(--gold)] hover:bg-yellow-400 text-[var(--navy)] text-lg font-display font-extrabold px-10 py-5 rounded-full shadow-[0_0_25px_rgba(255,214,0,0.3)] hover:-translate-y-1 transition-all"
           >
             Get Your Free Papers →
           </Link>

@@ -94,10 +94,10 @@ function DesktopDropdown({
       <button
         id={`nav-dropdown-${item.label.toLowerCase().replace(/\s/g, "-")}`}
         onClick={() => (isOpen ? onClose() : onOpen())}
-        className={`flex items-center gap-1 px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-brand-blue-dark/5 ${
+        className={`flex items-center gap-1 px-3 py-2 text-[15px] font-display font-semibold transition-colors duration-200 rounded-md ${
           isParentActive
-            ? "text-brand-blue-dark"
-            : "text-gray-700"
+            ? "text-[var(--gold)]"
+            : "text-gray-700 hover:text-brand-blue-dark"
         }`}
         aria-expanded={isOpen}
         aria-haspopup="true"
@@ -110,7 +110,7 @@ function DesktopDropdown({
         />
         {/* Active indicator */}
         {isParentActive && (
-          <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-brand-yellow-bright rounded-full" />
+          <span className="absolute bottom-0 left-3 right-3 h-[2px] bg-[var(--gold)] rounded-full" />
         )}
       </button>
 
@@ -121,7 +121,7 @@ function DesktopDropdown({
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="absolute top-full left-0 mt-1 w-72 rounded-xl bg-white shadow-xl shadow-black/8 border border-gray-100 border-t-2 border-t-brand-yellow-bright overflow-hidden z-50"
+            className="absolute top-full left-0 mt-1 w-72 rounded-xl bg-white shadow-xl shadow-black/8 border border-gray-100 border-t-2 border-t-[var(--gold)] overflow-hidden z-50"
           >
             <div className="p-2">
               {item.children.map((child) => (
@@ -160,17 +160,17 @@ function DropdownItem({
         <span className="text-lg mt-0.5 shrink-0">{child.icon}</span>
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2">
-            <span className="text-sm font-medium text-gray-400">
+            <span className="text-sm font-medium text-gray-500">
               {child.label}
             </span>
             {child.badge && (
-              <span className="inline-flex items-center px-2 py-0.5 text-[10px] font-semibold tracking-wide uppercase bg-brand-yellow-bright text-brand-blue-deep rounded-full">
+              <span className="inline-flex items-center px-2 py-0.5 text-[10px] font-semibold tracking-wide uppercase bg-[var(--gold)] text-[var(--navy)] rounded-full">
                 {child.badge}
               </span>
             )}
           </div>
           {child.description && (
-            <p className="text-xs text-gray-400 mt-0.5">{child.description}</p>
+            <p className="text-xs text-gray-600 mt-0.5">{child.description}</p>
           )}
         </div>
       </div>
@@ -193,20 +193,20 @@ function DropdownItem({
           <span
             className={`text-sm font-medium transition-colors ${
               isActive
-                ? "text-brand-blue-dark"
+                ? "text-[var(--gold)]"
                 : "text-gray-700 group-hover:text-brand-blue-dark"
             }`}
           >
             {child.label}
           </span>
           {child.badge && (
-            <span className="inline-flex items-center px-2 py-0.5 text-[10px] font-semibold tracking-wide uppercase bg-brand-yellow-bright text-brand-blue-deep rounded-full">
+            <span className="inline-flex items-center px-2 py-0.5 text-[10px] font-semibold tracking-wide uppercase bg-[var(--gold)] text-[var(--navy)] rounded-full">
               {child.badge}
             </span>
           )}
         </div>
         {child.description && (
-          <p className="text-xs text-gray-500 mt-0.5">{child.description}</p>
+          <p className="text-xs text-gray-400 mt-0.5">{child.description}</p>
         )}
       </div>
     </Link>
@@ -235,7 +235,7 @@ function MobileAccordionItem({
         onClick={onClose}
         className={`flex items-center justify-between px-4 py-3.5 text-base font-medium transition-colors border-b border-gray-100 ${
           pathname === item.href || pathname.startsWith(item.href + "/")
-            ? "text-brand-blue-dark bg-brand-blue-dark/5"
+            ? "text-[var(--gold)] bg-brand-blue-dark/5"
             : "text-gray-800 hover:bg-gray-50"
         }`}
       >
@@ -253,7 +253,7 @@ function MobileAccordionItem({
         onClick={() => setIsExpanded(!isExpanded)}
         className={`flex items-center justify-between w-full px-4 py-3.5 text-base font-medium transition-colors ${
           pathname.startsWith(item.href)
-            ? "text-brand-blue-dark bg-brand-blue-dark/5"
+            ? "text-[var(--gold)] bg-brand-blue-dark/5"
             : "text-gray-800 hover:bg-gray-50"
         }`}
       >
@@ -322,7 +322,7 @@ function MobileChildLink({
       onClick={onClose}
       className={`flex items-center gap-3 px-6 py-3 transition-colors ${
         isActive
-          ? "text-brand-blue-dark bg-brand-blue-dark/5"
+          ? "text-[var(--gold)] bg-brand-blue-dark/5"
           : "text-gray-600 hover:bg-gray-100"
       }`}
     >
@@ -373,7 +373,7 @@ export default function Navbar() {
   return (
     <header
       id="main-navbar"
-      className={`sticky top-0 z-50 w-full border-b border-brand-blue-dark/20 transition-all duration-300 ${
+      className={`sticky top-0 z-[1000] w-full border-b border-brand-blue-dark/20 transition-all duration-300 ${
         scrolled
           ? "glass shadow-lg shadow-black/5"
           : "bg-white shadow-none"
@@ -414,18 +414,18 @@ export default function Navbar() {
                   key={item.label}
                   href={item.href}
                   id={`nav-link-${item.label.toLowerCase()}`}
-                  className={`relative px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-brand-blue-dark/5 ${
+                  className={`relative px-3 py-2 text-[15px] font-display font-semibold transition-colors duration-200 rounded-md ${
                     pathname === item.href ||
                     pathname.startsWith(item.href + "/")
-                      ? "text-brand-blue-dark"
-                      : "text-gray-700"
+                      ? "text-[var(--gold)]"
+                      : "text-gray-700 hover:text-brand-blue-dark"
                   }`}
                 >
                   {item.label}
                   {/* Active indicator */}
                   {(pathname === item.href ||
                     pathname.startsWith(item.href + "/")) && (
-                    <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-brand-yellow-bright rounded-full" />
+                    <span className="absolute bottom-0 left-3 right-3 h-[2px] bg-[var(--gold)] rounded-full" />
                   )}
                 </Link>
               )
@@ -433,38 +433,37 @@ export default function Navbar() {
           </div>
 
           {/* ── Desktop CTA Buttons ── */}
-          <div className="hidden lg:flex items-center gap-2">
+          <div className="flex items-center gap-4">
             <a
               href={`tel:${PRIMARY_PHONE}`}
               id="navbar-call-btn"
-              className="inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-brand-blue-dark hover:bg-brand-blue-dark/5 rounded-lg transition-colors"
+              className="inline-flex items-center gap-1.5 text-[15px] font-display font-bold text-brand-blue-dark hover:opacity-80 transition-opacity"
             >
-              <Phone className="size-3.5" />
-              <span className="hidden xl:inline">{PRIMARY_PHONE_DISPLAY}</span>
-              <span className="xl:hidden">Call</span>
+              <span className="hidden md:inline">📞 {PRIMARY_PHONE_DISPLAY}</span>
+              <Phone className="size-5 md:hidden" />
             </a>
             <Link
               href="/apply"
               id="navbar-apply-btn"
-              className="shimmer-btn inline-flex items-center px-5 py-2.5 text-sm font-heading font-bold bg-brand-yellow-bright text-brand-blue-deep rounded-lg hover:bg-brand-yellow-bright/90 transition-all shadow-sm shadow-brand-yellow-bright/20 hover:shadow-md hover:shadow-brand-yellow-bright/30 active:scale-[0.98]"
+              className="hidden md:inline-flex items-center px-6 py-2.5 text-[15px] font-display font-extrabold bg-[var(--gold)] text-[var(--navy)] rounded-full hover:bg-[var(--gold-dim)] transition-all"
             >
               Apply Now
             </Link>
-          </div>
 
-          {/* ── Mobile Hamburger ── */}
-          <button
-            id="mobile-menu-toggle"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden flex items-center justify-center size-10 rounded-lg hover:bg-gray-100 transition-colors"
-            aria-label={mobileOpen ? "Close menu" : "Open menu"}
-          >
-            {mobileOpen ? (
-              <X className="size-5 text-gray-700" />
-            ) : (
-              <Menu className="size-5 text-gray-700" />
-            )}
-          </button>
+            {/* ── Mobile Hamburger ── */}
+            <button
+              id="mobile-menu-toggle"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="lg:hidden flex items-center justify-center size-10 rounded-lg hover:bg-gray-100 transition-colors"
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            >
+              {mobileOpen ? (
+                <X className="size-6 text-gray-700" />
+              ) : (
+                <Menu className="size-6 text-gray-700" />
+              )}
+            </button>
+          </div>
         </div>
       </nav>
 

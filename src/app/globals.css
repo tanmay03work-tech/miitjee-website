@@ -58,6 +58,32 @@
 }
 
 :root {
+  /* Brand Colors */
+  --navy-deep:   #050D1A;
+  --navy:        #0A1628;
+  --navy-mid:    #112240;
+  --navy-light:  #1E3A5F;
+  --gold:        #FFD600;
+  --gold-dim:    #D4A800;
+  --white:       #FFFFFF;
+  --off-white:   #F0F4FF;
+  --text-muted:  #8B9DC3;
+  --text-secondary: #475569;
+  --success:     #22C55E;
+  --red:         #EF4444;
+
+  /* Typography */
+  --font-display: 'Montserrat', sans-serif;
+  --font-body:    'Inter', sans-serif;
+
+  /* Spacing scale */
+  --section-pad: 96px 0;
+  --hero-pad:    120px 0 80px;
+
+  /* Radius */
+  --radius-card: 16px;
+  --radius-pill: 999px;
+
   --background: #F8FAFC;
   --foreground: #0F172A;
   --card: #FFFFFF;
@@ -132,20 +158,73 @@
   }
   body {
     @apply bg-background text-foreground font-sans;
+    font-family: var(--font-body);
+    font-weight: 500;
+    color: var(--off-white);
   }
-  h1, h2, h3, h4, h5, h6 {
+  h1 {
+    font-family: var(--font-display);
+    font-weight: 900;
+    color: var(--white);
+  }
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    color: var(--white);
+  }
+  h3, h4, h5, h6 {
     @apply font-heading;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--navy);
+    font-family: var(--font-display);
+    font-weight: 800;
+    border-radius: var(--radius-pill);
+    padding: 14px 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  .btn-primary:hover {
+    background: var(--gold-dim);
+  }
+
+  .btn-secondary {
+    border: 2px solid var(--gold);
+    color: var(--gold);
+    background: transparent;
+    font-family: var(--font-display);
+    font-weight: 800;
+    border-radius: var(--radius-pill);
+    padding: 14px 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  .btn-secondary:hover {
+    background: rgba(255, 214, 0, 0.1);
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
   }
 
   /* Premium selection color */
   ::selection {
-    background-color: #FEFD12;
-    color: #23205D;
+    background-color: var(--gold);
+    color: var(--navy);
   }
 
   /* Focus-visible ring */
   :focus-visible {
-    outline: 2px solid #1C1CA5;
+    outline: 2px solid var(--gold);
     outline-offset: 2px;
   }
 }

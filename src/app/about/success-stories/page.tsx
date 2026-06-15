@@ -1,4 +1,3 @@
-import PageHero from "@/components/ui/PageHero";
 import * as motion from "framer-motion/client";
 import { Quote } from "lucide-react";
 
@@ -77,40 +76,117 @@ const STORIES = [
 
 export default function SuccessStoriesPage() {
   return (
-    <div className="min-h-screen bg-gray-50 pb-24">
-      <PageHero
-        title="Success"
-        highlight="Stories"
-        description="Inspiring journeys of our students who achieved their dreams with MIITJEE."
-      />
-
-      <div className="container mx-auto px-4 max-w-7xl py-20">
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {STORIES.map((story, idx) => (
+    <div className="flex flex-col min-h-screen">
+      
+      {/* HERO */}
+      <section 
+        className="relative flex items-center"
+        style={{
+          background: 'var(--navy)',
+          minHeight: '80vh',
+          paddingTop: 'calc(var(--nav-height) + 4rem)',
+          paddingBottom: '4rem'
+        }}
+      >
+        <div className="max-w-7xl mx-auto px-6 w-full">
+          <div className="text-center max-w-4xl mx-auto">
             <motion.div
-              key={idx}
               initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: (idx % 3) * 0.1 }}
-              viewport={{ once: true }}
-              className="bg-white p-8 rounded-3xl shadow-lg border border-gray-100 flex flex-col relative group hover:-translate-y-2 transition-transform duration-300"
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
             >
-              <Quote className="w-10 h-10 text-brand-yellow-bright/40 absolute top-6 right-6 group-hover:text-brand-yellow-bright transition-colors" />
-              
-              <div className="mb-6">
-                <h3 className="text-2xl font-bold text-brand-blue-dark font-poppins">{story.name}</h3>
-                <p className="text-brand-yellow-bright font-bold mt-1 text-sm">{story.achievement}</p>
-              </div>
-              
-              <p className="text-gray-600 leading-relaxed italic relative z-10 flex-grow">
-                "{story.content}"
+              <h1 
+                style={{
+                  fontFamily: 'var(--font-display)',
+                  fontWeight: 900,
+                  fontSize: 'clamp(48px, 6vw, 72px)',
+                  color: '#fff',
+                  lineHeight: 1.1,
+                  marginBottom: '1.5rem'
+                }}
+              >
+                Success <span style={{ color: 'var(--gold)' }}>Stories</span>
+              </h1>
+              <p 
+                style={{
+                  fontFamily: 'var(--font-body)',
+                  fontSize: '18px',
+                  color: 'var(--text-muted)',
+                  lineHeight: 1.6,
+                }}
+              >
+                Inspiring journeys of our students who achieved their dreams with MIITJEE.
               </p>
             </motion.div>
-          ))}
+          </div>
         </div>
+      </section>
 
-      </div>
+      {/* STORIES GRID */}
+      <section style={{ background: '#ffffff', padding: 'var(--section-pad)' }}>
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {STORIES.map((story, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: (idx % 3) * 0.1 }}
+                viewport={{ once: true }}
+                className="flex flex-col relative bg-white"
+                style={{
+                  border: '1px solid #e2e8f0',
+                  borderTop: '4px solid var(--gold)',
+                  padding: '2.5rem',
+                  borderRadius: '8px',
+                  boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)'
+                }}
+              >
+                <Quote className="w-10 h-10 absolute top-6 right-6 opacity-10" style={{ color: 'var(--navy)' }} />
+                
+                <div className="mb-6">
+                  <h3 
+                    style={{
+                      fontFamily: 'var(--font-display)',
+                      fontWeight: 800,
+                      fontSize: '24px',
+                      color: 'var(--navy)',
+                      marginBottom: '0.25rem'
+                    }}
+                  >
+                    {story.name}
+                  </h3>
+                  <p 
+                    style={{
+                      fontFamily: 'var(--font-body)',
+                      fontWeight: 600,
+                      fontSize: '14px',
+                      color: 'var(--gold-dim)',
+                    }}
+                  >
+                    {story.achievement}
+                  </p>
+                </div>
+                
+                <p 
+                  className="flex-grow"
+                  style={{
+                    fontFamily: 'var(--font-body)',
+                    fontSize: '15px',
+                    color: 'var(--text-secondary)',
+                    lineHeight: 1.8,
+                    fontStyle: 'italic',
+                    position: 'relative',
+                    zIndex: 10
+                  }}
+                >
+                  "{story.content}"
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

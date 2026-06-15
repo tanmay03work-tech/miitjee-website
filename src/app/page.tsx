@@ -2,6 +2,7 @@ import dynamic from "next/dynamic";
 import { createClient } from "@/lib/supabase/server";
 
 import HeroSection from "@/components/home/HeroSection";
+import StatsSection from "@/components/home/StatsSection";
 import ResultsShowcase from "@/components/home/ResultsShowcase";
 import TestSeriesCTA from "@/components/home/TestSeriesCTA";
 import ProgramsOverview from "@/components/home/ProgramsOverview";
@@ -61,6 +62,7 @@ export default async function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       <HeroSection />
+      <StatsSection />
       <ResultsShowcase results={results || []} />
       <TestSeriesCTA />
       <ProgramsOverview />

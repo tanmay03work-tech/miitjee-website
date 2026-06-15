@@ -2,171 +2,270 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export default function HeroSection() {
-  const containerVariants: import("framer-motion").Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants: import("framer-motion").Variants = {
-    hidden: { opacity: 0, y: 24 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-  };
-
-  const stats = [
-    { value: "15+", label: "Years" },
-    { value: "10,000+", label: "Students" },
-    { value: "500+", label: "IIT Selections" },
-    { value: "300+", label: "NEET Selections" },
-  ];
-
   return (
-    <section className="relative min-h-[92vh] flex items-center justify-center bg-gradient-to-br from-[#0a0a3e] via-[#1C1CA5] to-[#23205D] overflow-hidden px-6 py-20">
-      {/* Dot grid pattern */}
-      <div className="absolute inset-0 dot-grid pointer-events-none" />
-
-      {/* Animated floating orbs */}
-      <motion.div
-        className="absolute top-[10%] right-[15%] w-[300px] h-[300px] rounded-full bg-[#FEFD12]/6 blur-[80px] pointer-events-none"
-        animate={{
-          x: [0, 30, -20, 0],
-          y: [0, -25, 15, 0],
-        }}
-        transition={{
-          duration: 12,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
-      <motion.div
-        className="absolute bottom-[15%] left-[10%] w-[350px] h-[350px] rounded-full bg-[#1C1CA5]/20 blur-[100px] pointer-events-none"
-        animate={{
-          x: [0, -20, 30, 0],
-          y: [0, 20, -15, 0],
-        }}
-        transition={{
-          duration: 15,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
-      <motion.div
-        className="absolute top-[50%] left-[50%] w-[200px] h-[200px] rounded-full bg-[#FEFD12]/4 blur-[60px] pointer-events-none"
-        animate={{
-          x: [0, 40, -30, 0],
-          y: [0, -30, 20, 0],
-        }}
-        transition={{
-          duration: 18,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
-
-      {/* Gradient overlay for text readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/10 pointer-events-none" />
-
-      <motion.div 
-        className="relative z-10 w-full max-w-5xl mx-auto text-center"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-      >
-        <motion.h1 
-          variants={itemVariants}
-          className="text-4xl md:text-6xl lg:text-7xl font-bold font-heading text-white leading-tight mb-6"
-        >
-          <span className="whitespace-nowrap">Eastern India&apos;s Most Trusted</span> <br className="hidden md:block" />
-          <span className="text-[#FEFD12]">JEE · NEET · Foundation</span> Institute
-        </motion.h1>
-
-        <motion.p 
-          variants={itemVariants}
-          className="text-lg md:text-xl text-blue-100/90 font-sans mb-10 max-w-2xl mx-auto"
-        >
-          Expert IITian faculty, proven results, and personalised mentoring. 
-          <br className="hidden sm:block" />
-          <span className="font-semibold text-white mt-2 inline-block">Free NEET Mock Test Papers available now →</span>
-        </motion.p>
-
-        <motion.div 
-          variants={itemVariants}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6"
-        >
-          {/* Primary CTA */}
-          <Link 
-            href="#admission" 
-            className="shimmer-btn w-full sm:w-auto px-8 py-4 bg-[#FEFD12] hover:bg-[#E5E410] text-[#23205D] font-heading font-bold rounded-full transition-all flex items-center justify-center gap-2 group hover:scale-[1.02] hover:shadow-lg hover:shadow-[#FEFD12]/20"
-          >
-            Book Free Counselling
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </Link>
-
-          {/* Secondary CTA */}
-          <Link 
-            href="/test-series/neet" 
-            className="w-full sm:w-auto px-8 py-4 bg-transparent border-2 border-white/60 text-white hover:bg-white/10 hover:border-white font-heading font-semibold rounded-full transition-all flex items-center justify-center gap-2"
-          >
-            Free NEET Mock Papers
-            <ArrowRight className="w-5 h-5" />
-          </Link>
-        </motion.div>
-
-        {/* Tertiary CTA - Disabled */}
-        <motion.div 
-          variants={itemVariants}
-          className="mt-8 inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white/5 border border-white/10 text-white/50 font-sans text-sm cursor-not-allowed backdrop-blur-sm"
-        >
-          <span>MANTHAN</span>
-          <span className="px-2 py-0.5 bg-white/15 text-white/70 text-xs font-bold rounded-full uppercase tracking-wider">
-            Coming Soon
-          </span>
-        </motion.div>
-
-        {/* Stats strip */}
+    <section 
+      className="relative flex flex-col justify-center bg-[var(--navy)] overflow-hidden"
+      style={{
+        minHeight: "100vh",
+        padding: "var(--hero-pad)",
+        backgroundImage: `repeating-linear-gradient(
+          -55deg,
+          transparent,
+          transparent 40px,
+          rgba(255,255,255,0.018) 40px,
+          rgba(255,255,255,0.018) 41px
+        )`
+      }}
+    >
+      <div className="w-full max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-[60%_40%] gap-12 items-center">
+        {/* LEFT COLUMN */}
         <motion.div
-          variants={itemVariants}
-          className="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="flex flex-col items-start"
         >
-          {stats.map((stat, i) => (
-            <div
-              key={i}
-              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl px-4 py-3"
+          {/* Eyebrow */}
+          <div 
+            className="mb-6 inline-block"
+            style={{
+              background: 'rgba(255,214,0,0.12)',
+              border: '1px solid rgba(255,214,0,0.3)',
+              color: 'var(--gold)',
+              fontFamily: 'var(--font-display)',
+              fontWeight: 600,
+              fontSize: '12px',
+              textTransform: 'uppercase',
+              letterSpacing: '2px',
+              borderRadius: 'var(--radius-pill)',
+              padding: '6px 16px'
+            }}
+          >
+            EST. 2001 · JAMSHEDPUR · EASTERN INDIA
+          </div>
+
+          {/* Main headline */}
+          <h1 
+            className="mb-4"
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontWeight: 900,
+              fontSize: 'clamp(40px, 5.5vw, 72px)',
+              lineHeight: 1.05,
+              color: 'var(--white)'
+            }}
+          >
+            Creating IITians<br />
+            & Doctors<br />
+            <span style={{color: 'var(--gold)'}}>Since 2001</span>
+          </h1>
+
+          {/* Subheadline */}
+          <p 
+            className="mb-10"
+            style={{
+              fontFamily: 'var(--font-body)',
+              fontWeight: 500,
+              fontSize: '18px',
+              color: 'var(--text-muted)'
+            }}
+          >
+            26 Years Legacy · Eastern India&apos;s Most Trusted JEE & NEET Institute
+          </p>
+
+          {/* Achievement Chips */}
+          <div className="flex flex-wrap gap-[10px] mb-10">
+            {[
+              "🏆 JEE 2026 · 2nd Rank City Topper",
+              "🩺 NEET 2025 · 1st Rank City Topper",
+              "⭐ 26 Years Legacy"
+            ].map((chip, i) => (
+              <span 
+                key={i}
+                style={{
+                  background: 'rgba(255,214,0,0.1)',
+                  border: '1.5px solid var(--gold)',
+                  color: 'var(--gold)',
+                  fontFamily: 'var(--font-display)',
+                  fontWeight: 700,
+                  fontSize: '13px',
+                  borderRadius: 'var(--radius-pill)',
+                  padding: '8px 20px',
+                }}
+              >
+                {chip}
+              </span>
+            ))}
+          </div>
+
+          {/* CTA Row */}
+          <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+            <Link 
+              href="/apply" 
+              className="btn-primary w-full sm:w-auto"
+              style={{
+                boxShadow: '0 4px 24px rgba(255,214,0,0.3)',
+                fontSize: '16px',
+              }}
             >
-              <div className="text-xl md:text-2xl font-bold font-heading text-[#FEFD12]">
-                {stat.value}
-              </div>
-              <div className="text-xs text-blue-100/60 font-sans mt-0.5 uppercase tracking-wide">
-                {stat.label}
-              </div>
-            </div>
-          ))}
+              Book Free Counselling
+            </Link>
+            <Link 
+              href="/results" 
+              className="btn-secondary w-full sm:w-auto"
+              style={{
+                fontSize: '16px',
+              }}
+            >
+              See All Results <ArrowRight className="ml-2 w-5 h-5" />
+            </Link>
+          </div>
         </motion.div>
-      </motion.div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-      >
+        {/* RIGHT COLUMN (Results Visual) */}
         <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="relative h-[400px] flex items-center justify-center mt-12 lg:mt-0"
         >
-          <ChevronDown className="w-6 h-6 text-white/40" />
+          {/* Card 3 (back) */}
+          <div 
+            style={{
+              background: 'var(--navy-mid)',
+              border: '1px solid var(--navy-light)',
+              borderTop: '4px solid var(--gold)',
+              borderRadius: 'var(--radius-card)',
+              padding: '24px',
+              position: 'absolute',
+              transform: 'rotate(5deg) translateX(40px)',
+              zIndex: 1,
+              width: '280px',
+              boxShadow: '0 20px 40px rgba(0,0,0,0.4)'
+            }}
+            className="hidden sm:block"
+          >
+            <div style={{color:'var(--gold)', fontSize:'11px', fontWeight:700, letterSpacing:'2px', fontFamily: 'var(--font-display)'}}>
+              JEE MAIN 2026
+            </div>
+            <div style={{color:'var(--white)', fontSize:'28px', fontWeight:900, fontFamily:'var(--font-display)', marginTop:'8px', marginBottom:'4px'}}>
+              67 Students
+            </div>
+            <div style={{color:'var(--text-muted)', fontSize:'14px', fontFamily:'var(--font-body)'}}>
+              &gt;95 Percentile
+            </div>
+            <div style={{
+              background:'var(--gold)', color:'var(--navy)', fontSize:'12px', fontWeight:800,
+              padding:'4px 12px', borderRadius:'var(--radius-pill)', display:'inline-block', marginTop:'12px', fontFamily:'var(--font-display)'
+            }}>MIITJEE STUDENT</div>
+          </div>
+
+          {/* Card 2 (middle) */}
+          <div 
+            style={{
+              background: 'var(--navy-mid)',
+              border: '1px solid var(--navy-light)',
+              borderTop: '4px solid var(--gold)',
+              borderRadius: 'var(--radius-card)',
+              padding: '24px',
+              position: 'absolute',
+              transform: 'rotate(-5deg) translateX(-40px)',
+              zIndex: 2,
+              width: '280px',
+              boxShadow: '0 20px 40px rgba(0,0,0,0.5)'
+            }}
+            className="hidden sm:block"
+          >
+            <div style={{color:'var(--gold)', fontSize:'11px', fontWeight:700, letterSpacing:'2px', fontFamily: 'var(--font-display)'}}>
+              NEET 2025
+            </div>
+            <div style={{color:'var(--white)', fontSize:'28px', fontWeight:900, fontFamily:'var(--font-display)', marginTop:'8px', marginBottom:'4px'}}>
+              1st Rank
+            </div>
+            <div style={{color:'var(--text-muted)', fontSize:'14px', fontFamily:'var(--font-body)'}}>
+              City Topper · Jamshedpur
+            </div>
+            <div style={{
+              background:'var(--gold)', color:'var(--navy)', fontSize:'12px', fontWeight:800,
+              padding:'4px 12px', borderRadius:'var(--radius-pill)', display:'inline-block', marginTop:'12px', fontFamily:'var(--font-display)'
+            }}>MIITJEE STUDENT</div>
+          </div>
+
+          {/* Card 1 (front) */}
+          <div 
+            style={{
+              background: 'var(--navy-mid)',
+              border: '1px solid var(--navy-light)',
+              borderTop: '4px solid var(--gold)',
+              borderRadius: 'var(--radius-card)',
+              padding: '24px',
+              position: 'relative',
+              zIndex: 3,
+              width: '100%',
+              maxWidth: '320px',
+              boxShadow: '0 25px 50px rgba(0,0,0,0.6)'
+            }}
+          >
+            <div style={{color:'var(--gold)', fontSize:'11px', fontWeight:700, letterSpacing:'2px', fontFamily: 'var(--font-display)'}}>
+              JEE MAIN 2026
+            </div>
+            <div style={{color:'var(--white)', fontSize:'32px', fontWeight:900, fontFamily:'var(--font-display)', marginTop:'8px', marginBottom:'4px'}}>
+              2nd Rank
+            </div>
+            <div style={{color:'var(--text-muted)', fontSize:'14px', fontFamily:'var(--font-body)'}}>
+              City Topper · Jamshedpur
+            </div>
+            <div style={{
+              background:'var(--gold)', color:'var(--navy)', fontSize:'12px', fontWeight:800,
+              padding:'4px 12px', borderRadius:'var(--radius-pill)', display:'inline-block', marginTop:'12px', fontFamily:'var(--font-display)'
+            }}>MIITJEE STUDENT</div>
+          </div>
         </motion.div>
-      </motion.div>
+      </div>
+
+      {/* BOTTOM STRIP (Scrolling Marquee) */}
+      <div 
+        className="absolute bottom-0 left-0 right-0 z-20"
+        style={{
+          background: 'var(--gold)',
+          overflow: 'hidden',
+          padding: '12px 0',
+        }}
+      >
+        <div 
+          className="flex whitespace-nowrap"
+          style={{
+            animation: 'marquee 30s linear infinite',
+          }}
+        >
+          {[1, 2, 3, 4].map((i) => (
+            <span 
+              key={i}
+              style={{
+                color: 'var(--navy)', 
+                fontFamily: 'var(--font-display)', 
+                fontWeight: 800, 
+                fontSize: '14px', 
+                marginRight: '60px'
+              }}
+            >
+              JEE Main 2026 · 2nd Rank City Topper
+              &nbsp;★&nbsp;
+              NEET 2025 · 1st Rank City Topper
+              &nbsp;★&nbsp;
+              67 Students &gt;95 Percentile JEE 2026
+              &nbsp;★&nbsp;
+              77% NEET 2025 Success Rate
+              &nbsp;★&nbsp;
+              10,000+ Students · 26 Years · Jamshedpur
+              &nbsp;★&nbsp;
+            </span>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }

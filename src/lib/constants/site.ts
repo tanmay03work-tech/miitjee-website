@@ -3,7 +3,7 @@
 // ─────────────────────────────────────────
 
 export const SITE_NAME = "MIITJEE";
-export const SITE_TAGLINE = "Where Champions Are Made";
+export const SITE_TAGLINE = "Start Early. Start Fresh. Take a Lead.";
 export const SITE_DESCRIPTION =
   "MIITJEE is Jharkhand's leading coaching institute for JEE, NEET, and Foundation programmes. Expert faculty, proven results, and personalised coaching to help students achieve their dreams.";
 
@@ -94,12 +94,6 @@ export const NAV_ITEMS: NavItem[] = [
         icon: "👥",
         description: "Our expert teachers",
       },
-      {
-        label: "Other Centres",
-        href: "/about/other-centres",
-        icon: "📍",
-        description: "Our network of centres",
-      },
     ],
   },
   {
@@ -169,7 +163,7 @@ export const FOOTER_LINKS = {
     { label: "Gallery", href: "/gallery" },
     { label: "Testimonials", href: "/testimonials" },
     { label: "FAQ", href: "/faq" },
-    { label: "Contact", href: "/contact" },
+    { label: "Apply Now", href: "/apply" },
   ],
   programs: [
     { label: "JEE Main + Advanced", href: "/programs/jee" },
@@ -180,8 +174,9 @@ export const FOOTER_LINKS = {
   ],
   branches: [
     { label: "Sakchi, Jamshedpur", href: "/branches" },
+    { label: "Lalpur, Ranchi", href: "/branches" },
+    { label: "Sundarnagar, Jamshedpur", href: "/branches" },
+    { label: "Baridih, Jamshedpur", href: "/branches" },
     { label: "Bistupur, Jamshedpur", href: "/branches" },
-    { label: "Bokaro Steel City", href: "/branches" },
-    { label: "Dhanbad", href: "/branches" },
   ],
 } as const;

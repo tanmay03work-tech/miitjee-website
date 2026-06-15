@@ -7,19 +7,21 @@ const easeOutExpo = (t: number): number => {
   return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
 };
 
-const AnimatedNumber = ({ endValue, suffix = "", format = true }: { endValue: number, suffix?: string, format?: boolean }) => {
-  const [count, setCount] = useState(endValue);
+const AnimatedNumber = ({ endValue, suffix = "" }: { endValue: number, suffix?: string }) => {
+  const [count, setCount] = useState(endValue); // Fallback: initially show end value
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   
   useEffect(() => {
-    setCount(1); // Never 0 fallback before animation
+    // If not in view yet, or if it runs on client, we can reset to start counting
+    // But since we want "NEVER show 0", we'll let it count from 1 if it mounts
+    setCount(1);
   }, []);
 
   useEffect(() => {
     if (isInView) {
       let startTime: number;
-      const duration = 2500; // slightly longer for drama
+      const duration = 2000; // 2 seconds
       
       const animate = (currentTime: number) => {
         if (!startTime) startTime = currentTime;
@@ -38,55 +40,55 @@ const AnimatedNumber = ({ endValue, suffix = "", format = true }: { endValue: nu
     }
   }, [isInView, endValue]);
 
-  const formattedCount = format ? count.toLocaleString('en-US') : count.toString();
+  // format numbers like 10000 -> 10,000
+  const formattedCount = count.toLocaleString('en-US');
 
   return <span ref={ref}>{formattedCount}{suffix}</span>;
 };
 
-export default function StatsCounter() {
+export default function StatsSection() {
   const stats = [
-    { value: 26, suffix: "", label: "Years of Excellence", format: true },
-    { value: 100000, suffix: "+", label: "Students Mentored", format: true },
-    { value: 500, suffix: "+", label: "JEE Selections / Year", format: true },
-    { value: 300, suffix: "+", label: "NEET Selections / Year", format: true },
-    { value: 2001, suffix: "", label: "Year Founded", format: false },
+    { value: 26, suffix: "", label: "Years of Excellence" },
+    { value: 100000, suffix: "+", label: "Students Mentored" },
+    { value: 500, suffix: "+", label: "JEE Selections / Year" },
+    { value: 300, suffix: "+", label: "NEET Selections / Year" },
   ];
 
   return (
     <section 
       style={{
-        background: 'var(--off-white)',
+        background: 'var(--navy-mid)',
         padding: 'var(--section-pad)',
       }}
     >
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12 text-center">
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-12 text-center">
         {stats.map((stat, idx) => (
           <motion.div 
             key={idx}
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.8, delay: idx * 0.1 }}
-            className="flex flex-col items-center justify-center"
+            transition={{ duration: 0.6, delay: idx * 0.1 }}
+            className="flex flex-col items-center"
           >
             <div 
               style={{
                 fontFamily: 'var(--font-display)',
                 fontWeight: 900,
-                fontSize: 'clamp(36px, 4vw, 56px)', // Smaller to prevent overlapping
-                color: 'var(--navy)',
+                fontSize: 'clamp(48px, 6vw, 72px)',
+                color: 'var(--gold)',
                 lineHeight: 1
               }}
             >
-              <AnimatedNumber endValue={stat.value} suffix={stat.suffix} format={stat.format} />
+              <AnimatedNumber endValue={stat.value} suffix={stat.suffix} />
             </div>
             <div 
-              className="mt-6 mb-4"
+              className="mt-4 mb-4"
               style={{
                 fontFamily: 'var(--font-body)',
-                fontWeight: 600,
-                fontSize: '14px',
-                color: 'var(--text-secondary)',
+                fontWeight: 500,
+                fontSize: '16px',
+                color: 'var(--text-muted)',
                 textTransform: 'uppercase',
                 letterSpacing: '1px'
               }}
@@ -95,8 +97,8 @@ export default function StatsCounter() {
             </div>
             <div 
               style={{
-                width: '60px',
-                height: '3px',
+                width: '40px',
+                height: '2px',
                 background: 'var(--gold)'
               }}
             />

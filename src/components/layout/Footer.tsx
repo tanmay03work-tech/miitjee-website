@@ -59,10 +59,27 @@ export default function Footer() {
   return (
     <footer
       id="main-footer"
-      className="relative bg-brand-blue-deep text-white"
+      className="relative bg-[#060E1C] text-white border-t border-[var(--navy-light)] overflow-hidden"
     >
+      {/* Background Texture & Glows */}
+      <div 
+        className="absolute inset-0 pointer-events-none" 
+        style={{
+          backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.06) 1.5px, transparent 1.5px)',
+          backgroundSize: '32px 32px'
+        }}
+      />
+      <div 
+        className="absolute top-0 left-1/4 w-[800px] h-[800px] rounded-full blur-[100px] pointer-events-none -translate-y-1/2 -translate-x-1/2" 
+        style={{ background: 'radial-gradient(circle, rgba(255, 214, 0, 0.08) 0%, transparent 70%)' }}
+      />
+      <div 
+        className="absolute bottom-0 right-0 w-[800px] h-[800px] rounded-full blur-[100px] pointer-events-none translate-y-1/4 translate-x-1/4" 
+        style={{ background: 'radial-gradient(circle, rgba(30, 58, 95, 0.25) 0%, transparent 70%)' }}
+      />
+
       {/* Gradient top divider */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-yellow-bright/40 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-1 bg-[var(--gold)]" />
 
       {/* ── Main Footer Content ── */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-16 pb-12">
@@ -78,13 +95,16 @@ export default function Footer() {
                 className="h-14 w-auto object-contain"
               />
             </Link>
-            <p className="font-heading text-lg font-semibold text-brand-yellow-bright mb-3">
+            <p className="font-display text-[15px] font-bold text-[var(--gold)] mb-1">
               {SITE_TAGLINE}
             </p>
-            <p className="text-sm text-white/70 leading-relaxed max-w-md mb-6">
+            <p className="text-xs font-medium text-white/50 mb-4 uppercase tracking-widest">
+              Est. 3rd March 2001 · Jamshedpur, Jharkhand
+            </p>
+            <p className="text-sm text-[var(--text-muted)] leading-relaxed max-w-md mb-6">
               Jharkhand&apos;s leading coaching institute for JEE, NEET, and
               Foundation programmes. Expert faculty, proven results, and
-              personalised mentoring since 2010.
+              personalised mentoring since 2001.
             </p>
 
             {/* Social Links */}
@@ -94,7 +114,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="flex items-center justify-center size-9 rounded-lg bg-white/10 hover:bg-brand-yellow-bright hover:text-brand-blue-deep text-white transition-all duration-200 hover:shadow-md hover:shadow-brand-yellow-bright/20"
+                className="flex items-center justify-center size-9 rounded-full border border-white text-white hover:border-[var(--gold)] hover:text-[var(--gold)] transition-all duration-200"
               >
                 <FacebookIcon className="size-4" />
               </a>
@@ -103,7 +123,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="flex items-center justify-center size-9 rounded-lg bg-white/10 hover:bg-brand-yellow-bright hover:text-brand-blue-deep text-white transition-all duration-200 hover:shadow-md hover:shadow-brand-yellow-bright/20"
+                className="flex items-center justify-center size-9 rounded-full border border-white text-white hover:border-[var(--gold)] hover:text-[var(--gold)] transition-all duration-200"
               >
                 <InstagramIcon className="size-4" />
               </a>
@@ -112,7 +132,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="YouTube"
-                className="flex items-center justify-center size-9 rounded-lg bg-white/10 hover:bg-brand-yellow-bright hover:text-brand-blue-deep text-white transition-all duration-200 hover:shadow-md hover:shadow-brand-yellow-bright/20"
+                className="flex items-center justify-center size-9 rounded-full border border-white text-white hover:border-[var(--gold)] hover:text-[var(--gold)] transition-all duration-200"
               >
                 <YoutubeIcon className="size-4" />
               </a>
@@ -121,16 +141,15 @@ export default function Footer() {
 
           {/* ── Column 2: Quick Links ── */}
           <div className="lg:col-span-2">
-            <h3 className="font-heading text-sm font-semibold uppercase tracking-wider text-brand-yellow-bright mb-4">
+            <h3 className="font-display text-[12px] font-bold uppercase tracking-[2px] text-[var(--gold)] mb-4">
               Quick Links
-              <span className="block w-8 h-0.5 bg-brand-yellow-bright/40 rounded-full mt-2" />
             </h3>
             <ul className="space-y-2.5">
               {FOOTER_LINKS.quickLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-white/70 hover:text-white hover:translate-x-1 transition-all duration-200 inline-block"
+                    className="text-sm text-[var(--text-muted)] hover:text-white transition-colors duration-200 inline-block"
                   >
                     {link.label}
                   </Link>
@@ -141,16 +160,15 @@ export default function Footer() {
 
           {/* ── Column 3: Programs ── */}
           <div className="lg:col-span-2">
-            <h3 className="font-heading text-sm font-semibold uppercase tracking-wider text-brand-yellow-bright mb-4">
+            <h3 className="font-display text-[12px] font-bold uppercase tracking-[2px] text-[var(--gold)] mb-4">
               Programs
-              <span className="block w-8 h-0.5 bg-brand-yellow-bright/40 rounded-full mt-2" />
             </h3>
             <ul className="space-y-2.5">
               {FOOTER_LINKS.programs.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-white/70 hover:text-white hover:translate-x-1 transition-all duration-200 inline-block"
+                    className="text-sm text-[var(--text-muted)] hover:text-white transition-colors duration-200 inline-block"
                   >
                     {link.label}
                   </Link>
@@ -161,23 +179,22 @@ export default function Footer() {
 
           {/* ── Column 4: Contact + Branches ── */}
           <div className="lg:col-span-3">
-            <h3 className="font-heading text-sm font-semibold uppercase tracking-wider text-brand-yellow-bright mb-4">
+            <h3 className="font-display text-[12px] font-bold uppercase tracking-[2px] text-[var(--gold)] mb-4">
               Contact
-              <span className="block w-8 h-0.5 bg-brand-yellow-bright/40 rounded-full mt-2" />
             </h3>
             <ul className="space-y-3">
               <li>
-                <div className="flex items-start gap-2 text-sm text-white/70">
-                  <MapPin className="size-4 shrink-0 mt-0.5 text-brand-yellow-bright" />
+                <div className="flex items-start gap-2 text-sm text-[var(--text-muted)]">
+                  <MapPin className="size-4 shrink-0 mt-0.5 text-[var(--gold)]" />
                   <span>{PRIMARY_ADDRESS}</span>
                 </div>
               </li>
               <li>
                 <a
                   href={`tel:${PRIMARY_PHONE}`}
-                  className="flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors"
+                  className="flex items-center gap-2 text-sm text-[var(--text-muted)] hover:text-white transition-colors"
                 >
-                  <Phone className="size-4 shrink-0 text-brand-yellow-bright" />
+                  <Phone className="size-4 shrink-0 text-[var(--gold)]" />
                   {PRIMARY_PHONE_DISPLAY}
                 </a>
               </li>
@@ -186,7 +203,7 @@ export default function Footer() {
                   href={WHATSAPP_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors"
+                  className="flex items-center gap-2 text-sm text-[var(--text-muted)] hover:text-white transition-colors"
                 >
                   <MessageCircle className="size-4 shrink-0 text-green-400" />
                   WhatsApp Us
@@ -195,27 +212,26 @@ export default function Footer() {
               <li>
                 <a
                   href={`mailto:${PRIMARY_EMAIL}`}
-                  className="flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors"
+                  className="flex items-center gap-2 text-sm text-[var(--text-muted)] hover:text-white transition-colors"
                 >
-                  <Mail className="size-4 shrink-0 text-brand-yellow-bright" />
+                  <Mail className="size-4 shrink-0 text-[var(--gold)]" />
                   <span className="whitespace-nowrap">{PRIMARY_EMAIL}</span>
                 </a>
               </li>
             </ul>
 
             {/* Branches sub-section */}
-            <h3 className="font-heading text-sm font-semibold uppercase tracking-wider text-brand-yellow-bright mt-6 mb-4">
+            <h3 className="font-display text-[12px] font-bold uppercase tracking-[2px] text-[var(--gold)] mt-6 mb-4">
               Branches
-              <span className="block w-8 h-0.5 bg-brand-yellow-bright/40 rounded-full mt-2" />
             </h3>
             <ul className="space-y-2.5">
               {FOOTER_LINKS.branches.map((branch) => (
                 <li key={branch.label}>
                   <Link
                     href={branch.href}
-                    className="flex items-start gap-2 text-sm text-white/70 hover:text-white transition-colors"
+                    className="flex items-start gap-2 text-sm text-[var(--text-muted)] hover:text-white transition-colors"
                   >
-                    <MapPin className="size-3.5 shrink-0 mt-0.5 text-brand-yellow-bright/60" />
+                    <MapPin className="size-3.5 shrink-0 mt-0.5 text-[var(--gold)]" />
                     {branch.label}
                   </Link>
                 </li>
@@ -225,13 +241,12 @@ export default function Footer() {
 
           {/* ── Column 5: Location Map ── */}
           <div className="lg:col-span-2">
-            <h3 className="font-heading text-sm font-semibold uppercase tracking-wider text-brand-yellow-bright mb-4">
+            <h3 className="font-display text-[12px] font-bold uppercase tracking-[2px] text-[var(--gold)] mb-4">
               Location Map
-              <span className="block w-8 h-0.5 bg-brand-yellow-bright/40 rounded-full mt-2" />
             </h3>
             <div className="rounded-xl overflow-hidden h-48 w-full border border-white/10 bg-white/5 relative group">
               <Link 
-                href="https://maps.app.goo.gl/9h2XGk3gP1k821Xn7" 
+                href="https://www.google.com/maps/search/?api=1&query=MIITJEE+Sakchi+Jamshedpur" 
                 target="_blank" 
                 className="absolute top-2 left-2 z-10 bg-white text-[#1a73e8] text-sm font-medium px-3 py-1.5 rounded-sm shadow-md flex items-center gap-1.5 hover:bg-gray-50 transition-colors"
               >
@@ -253,7 +268,7 @@ export default function Footer() {
       </div>
 
       {/* ── Copyright Bar ── */}
-      <div className="border-t border-white/10">
+      <div className="border-t border-[var(--navy-light)] bg-[#060E1C]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-5">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/50">
             <p>
@@ -261,14 +276,14 @@ export default function Footer() {
             </p>
             <div className="flex items-center gap-4">
               <Link
-                href="/contact"
+                href="/apply"
                 className="hover:text-white transition-colors"
               >
                 Privacy Policy
               </Link>
               <span className="text-white/20">|</span>
               <Link
-                href="/contact"
+                href="/apply"
                 className="hover:text-white transition-colors"
               >
                 Terms of Service

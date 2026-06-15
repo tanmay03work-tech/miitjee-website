@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { toast } from "sonner";
-import { Loader2, Phone, Sparkles, Users, ArrowRight } from "lucide-react";
+import { Loader2 } from "lucide-react";
 
 import {
   Form,
@@ -33,12 +33,6 @@ const formSchema = z.object({
   branchPref: z.string().optional(),
   message: z.string().optional(),
 });
-
-const STEPS = [
-  { num: "01", title: "Fill the Form", desc: "Share your basic details in under 2 minutes" },
-  { num: "02", title: "Expert Callback", desc: "Our counsellor will reach you within 24 hours" },
-  { num: "03", title: "Get Your Roadmap", desc: "Receive a personalised study plan for your goal" },
-];
 
 export default function AdmissionForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -79,159 +73,90 @@ export default function AdmissionForm() {
     }
   }
 
+  const trustSignals = [
+    { num: "Free", label: "Zero Cost Counselling" },
+    { num: "24hrs", label: "Callback Guarantee" },
+    { num: "10,000+", label: "Families Counselled Since 2001" },
+  ];
+
   return (
     <section
       id="admission"
-      className="relative overflow-hidden py-24 lg:py-32"
-      style={{
-        background: "linear-gradient(135deg, #0a0a3e 0%, #1C1CA5 40%, #2d1b69 70%, #0a0a3e 100%)",
-      }}
+      className="relative py-24 lg:py-32"
+      style={{ background: "var(--navy)" }}
     >
-      {/* ── Animated Background Elements ── */}
-      <div className="pointer-events-none absolute inset-0">
-        {/* Grid pattern */}
-        <div
-          className="absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-          }}
-        />
-        {/* Floating orbs */}
-        <div className="absolute top-1/4 -left-20 w-[400px] h-[400px] rounded-full bg-[#FEFD12]/8 blur-[120px] animate-pulse" />
-        <div className="absolute bottom-1/4 right-0 w-[500px] h-[500px] rounded-full bg-[#6366f1]/15 blur-[140px]" />
-        <div className="absolute top-0 right-1/3 w-[300px] h-[300px] rounded-full bg-[#818cf8]/10 blur-[100px]" />
-      </div>
-
-      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-16">
-        <div className="flex flex-col lg:flex-row items-stretch gap-12 xl:gap-20">
-
-          {/* ── LEFT COLUMN: Copy ── */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+          
+          {/* LEFT COLUMN: Trust Signals */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            className="lg:w-[48%] shrink-0 flex flex-col justify-center"
+            className="flex flex-col justify-center"
           >
-            {/* Pill Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2.5 self-start bg-white/[0.07] backdrop-blur-sm border border-white/[0.12] text-white/90 text-sm font-medium px-5 py-2.5 rounded-full mb-8"
+            <h2 
+              className="mb-12"
+              style={{
+                fontFamily: 'var(--font-display)',
+                fontWeight: 800,
+                fontSize: 'clamp(32px, 4vw, 48px)',
+                color: 'var(--white)',
+                lineHeight: 1.1,
+              }}
             >
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FEFD12] opacity-75" />
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#FEFD12]" />
-              </span>
-              Admissions Open — 2025–26
-            </motion.div>
-
-            {/* Heading */}
-            <h2 className="text-4xl sm:text-5xl xl:text-[3.6rem] font-extrabold font-heading leading-[1.1] mb-6 tracking-tight text-white">
-              Book Your{" "}
-              <span
-                className="bg-gradient-to-r from-[#FEFD12] via-[#fde047] to-[#FEFD12] bg-clip-text text-transparent"
-              >
-                Free Counselling
-              </span>{" "}
-              Session
+              Why you should call us
             </h2>
 
-            <p className="text-blue-200/80 text-lg leading-relaxed mb-12 max-w-lg">
-              Not sure which programme is right for you? Our expert counsellors
-              will map out a personalised preparation strategy based on your
-              current academic standing — at zero cost.
-            </p>
-
-            {/* Steps — vertical timeline */}
-            <div className="relative space-y-0 mb-12">
-              {/* Vertical connector line */}
-              <div className="absolute left-[18px] top-[36px] bottom-[36px] w-px bg-gradient-to-b from-[#FEFD12]/40 via-white/15 to-[#FEFD12]/40" />
-
-              {STEPS.map((step, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.3 + i * 0.12 }}
-                  className="relative flex items-start gap-5 py-4"
-                >
-                  {/* Step number circle */}
-                  <div className="relative z-10 w-[38px] h-[38px] rounded-full bg-gradient-to-br from-[#FEFD12]/20 to-[#FEFD12]/5 border border-[#FEFD12]/30 flex items-center justify-center shrink-0">
-                    <span className="text-[#FEFD12] text-xs font-bold font-heading">{step.num}</span>
+            <div className="flex flex-col gap-10">
+              {trustSignals.map((signal, idx) => (
+                <div key={idx} className="flex flex-col">
+                  <div 
+                    style={{
+                      fontFamily: 'var(--font-display)',
+                      fontWeight: 900,
+                      fontSize: 'clamp(48px, 6vw, 64px)',
+                      color: 'var(--gold)',
+                      lineHeight: 1
+                    }}
+                  >
+                    {signal.num}
                   </div>
-                  <div>
-                    <p className="font-semibold text-white text-[15px] leading-snug">{step.title}</p>
-                    <p className="text-blue-300/60 text-sm mt-1">{step.desc}</p>
+                  <div 
+                    style={{
+                      fontFamily: 'var(--font-body)',
+                      fontWeight: 500,
+                      fontSize: '18px',
+                      color: 'var(--text-muted)',
+                      textTransform: 'uppercase',
+                      letterSpacing: '1px',
+                      marginTop: '8px'
+                    }}
+                  >
+                    {signal.label}
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
-
-            {/* Social proof card */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.6 }}
-              className="flex items-center gap-4 bg-white/[0.06] backdrop-blur-sm border border-white/[0.1] rounded-2xl px-6 py-5"
-            >
-              <div className="w-11 h-11 rounded-xl bg-[#FEFD12]/10 flex items-center justify-center shrink-0">
-                <Users className="w-5 h-5 text-[#FEFD12]" />
-              </div>
-              <p className="text-sm text-white/70 leading-snug">
-                <span className="font-bold text-white">10,000+ students</span> enrolled
-                through this counselling process since 2010.
-              </p>
-            </motion.div>
-
-            {/* Phone CTA */}
-            <a
-              href="tel:+918906000160"
-              className="mt-6 inline-flex items-center gap-3 group self-start"
-            >
-              <div className="w-10 h-10 rounded-full bg-[#FEFD12]/10 group-hover:bg-[#FEFD12]/20 border border-[#FEFD12]/20 flex items-center justify-center transition-all duration-300">
-                <Phone className="w-4 h-4 text-[#FEFD12]" />
-              </div>
-              <span className="font-semibold text-[#FEFD12] group-hover:text-white transition-colors text-[15px]">
-                +91 89060 00160
-              </span>
-              <span className="text-white/40 text-sm">— Call directly</span>
-            </a>
           </motion.div>
 
-          {/* ── RIGHT COLUMN: Form Card ── */}
+          {/* RIGHT COLUMN: Form Card */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" }}
-            className="flex-1 w-full min-w-0"
           >
-            <div className="relative bg-white rounded-[28px] shadow-2xl shadow-black/20 border border-white/20 p-8 sm:p-10 xl:p-12">
-              {/* Decorative accent line at top */}
-              <div className="absolute top-0 left-8 right-8 h-[3px] rounded-b-full bg-gradient-to-r from-transparent via-[#1C1CA5] to-transparent" />
-
-              <div className="mb-8">
-                <div className="flex items-center gap-2.5 mb-2">
-                  <Sparkles className="w-5 h-5 text-[#1C1CA5]" />
-                  <span className="text-xs font-semibold uppercase tracking-widest text-[#1C1CA5]/70">
-                    Enquiry Form
-                  </span>
-                </div>
-                <h3 className="text-2xl sm:text-[1.7rem] font-bold text-gray-900 font-heading leading-tight">
-                  Submit Your Enquiry
-                </h3>
-                <p className="text-gray-400 mt-2 text-sm leading-relaxed">
-                  Fill the form below and we&apos;ll get back to you within 24 hours.
-                </p>
-              </div>
-
+            <div 
+              style={{
+                background: 'var(--navy-mid)',
+                border: '1px solid var(--navy-light)',
+                borderTop: '4px solid var(--gold)',
+                borderRadius: 'var(--radius-card)',
+                padding: '40px 32px'
+              }}
+            >
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
 
@@ -241,18 +166,25 @@ export default function AdmissionForm() {
                       control={form.control}
                       name="name"
                       render={({ field }) => (
-                        <FormItem className="space-y-1.5">
-                          <FormLabel className="text-gray-600 font-medium text-[13px]">
-                            Full Name <span className="text-red-400">*</span>
+                        <FormItem className="space-y-2">
+                          <FormLabel style={{ color: 'var(--text-muted)', fontFamily: 'var(--font-body)' }}>
+                            Full Name <span style={{ color: 'var(--gold)' }}>*</span>
                           </FormLabel>
                           <FormControl>
                             <Input
                               placeholder="e.g. Rahul Sharma"
                               {...field}
-                              className="h-12 text-sm bg-gray-50/80 border border-gray-200/80 focus-visible:ring-2 focus-visible:ring-[#1C1CA5]/30 focus-visible:border-[#1C1CA5]/50 rounded-xl px-4 transition-all duration-200 placeholder:text-gray-300"
+                              className="h-12 border-none rounded-lg focus-visible:ring-1 focus-visible:ring-offset-0 focus-visible:ring-[var(--gold)] px-4 transition-all duration-200"
+                              style={{
+                                background: 'var(--navy)',
+                                color: 'var(--white)',
+                                border: '1px solid var(--navy-light)'
+                              }}
+                              onFocus={(e) => { e.currentTarget.style.borderColor = 'var(--gold)'; }}
+                              onBlur={(e) => { e.currentTarget.style.borderColor = 'var(--navy-light)'; }}
                             />
                           </FormControl>
-                          <FormMessage />
+                          <FormMessage style={{ color: 'var(--red)' }} />
                         </FormItem>
                       )}
                     />
@@ -261,20 +193,27 @@ export default function AdmissionForm() {
                       control={form.control}
                       name="phone"
                       render={({ field }) => (
-                        <FormItem className="space-y-1.5">
-                          <FormLabel className="text-gray-600 font-medium text-[13px]">
-                            Phone Number <span className="text-red-400">*</span>
+                        <FormItem className="space-y-2">
+                          <FormLabel style={{ color: 'var(--text-muted)', fontFamily: 'var(--font-body)' }}>
+                            Phone Number <span style={{ color: 'var(--gold)' }}>*</span>
                           </FormLabel>
                           <FormControl>
                             <Input
                               placeholder="10-digit mobile number"
                               {...field}
-                              className="h-12 text-sm bg-gray-50/80 border border-gray-200/80 focus-visible:ring-2 focus-visible:ring-[#1C1CA5]/30 focus-visible:border-[#1C1CA5]/50 rounded-xl px-4 transition-all duration-200 placeholder:text-gray-300"
                               maxLength={10}
                               inputMode="numeric"
+                              className="h-12 border-none rounded-lg focus-visible:ring-1 focus-visible:ring-offset-0 focus-visible:ring-[var(--gold)] px-4 transition-all duration-200"
+                              style={{
+                                background: 'var(--navy)',
+                                color: 'var(--white)',
+                                border: '1px solid var(--navy-light)'
+                              }}
+                              onFocus={(e) => { e.currentTarget.style.borderColor = 'var(--gold)'; }}
+                              onBlur={(e) => { e.currentTarget.style.borderColor = 'var(--navy-light)'; }}
                             />
                           </FormControl>
-                          <FormMessage />
+                          <FormMessage style={{ color: 'var(--red)' }} />
                         </FormItem>
                       )}
                     />
@@ -286,23 +225,30 @@ export default function AdmissionForm() {
                       control={form.control}
                       name="classLevel"
                       render={({ field }) => (
-                        <FormItem className="space-y-1.5">
-                          <FormLabel className="text-gray-600 font-medium text-[13px]">
-                            Current Class <span className="text-red-400">*</span>
+                        <FormItem className="space-y-2">
+                          <FormLabel style={{ color: 'var(--text-muted)', fontFamily: 'var(--font-body)' }}>
+                            Current Class <span style={{ color: 'var(--gold)' }}>*</span>
                           </FormLabel>
                           <Select onValueChange={field.onChange} defaultValue={field.value}>
                             <FormControl>
-                              <SelectTrigger className="h-12 text-sm bg-gray-50/80 border border-gray-200/80 focus:ring-2 focus:ring-[#1C1CA5]/30 focus:border-[#1C1CA5]/50 rounded-xl px-4 transition-all duration-200">
+                              <SelectTrigger 
+                                className="h-12 border-none rounded-lg focus:ring-1 focus:ring-[var(--gold)] px-4 transition-all duration-200"
+                                style={{
+                                  background: 'var(--navy)',
+                                  color: 'var(--white)',
+                                  border: '1px solid var(--navy-light)'
+                                }}
+                              >
                                 <SelectValue placeholder="Select your class" />
                               </SelectTrigger>
                             </FormControl>
-                            <SelectContent>
+                            <SelectContent style={{ background: 'var(--navy-mid)', color: 'var(--white)', border: '1px solid var(--navy-light)' }}>
                               {["Class 6", "Class 7", "Class 8", "Class 9", "Class 10", "Class 11", "Class 12", "12th Pass"].map((c) => (
-                                <SelectItem key={c} value={c}>{c}</SelectItem>
+                                <SelectItem key={c} value={c} className="hover:bg-blue-900/50 focus:bg-blue-900/50">{c}</SelectItem>
                               ))}
                             </SelectContent>
                           </Select>
-                          <FormMessage />
+                          <FormMessage style={{ color: 'var(--red)' }} />
                         </FormItem>
                       )}
                     />
@@ -311,24 +257,31 @@ export default function AdmissionForm() {
                       control={form.control}
                       name="programme"
                       render={({ field }) => (
-                        <FormItem className="space-y-1.5">
-                          <FormLabel className="text-gray-600 font-medium text-[13px]">
-                            Interested In <span className="text-red-400">*</span>
+                        <FormItem className="space-y-2">
+                          <FormLabel style={{ color: 'var(--text-muted)', fontFamily: 'var(--font-body)' }}>
+                            Interested In <span style={{ color: 'var(--gold)' }}>*</span>
                           </FormLabel>
                           <Select onValueChange={field.onChange} defaultValue={field.value}>
                             <FormControl>
-                              <SelectTrigger className="h-12 text-sm bg-gray-50/80 border border-gray-200/80 focus:ring-2 focus:ring-[#1C1CA5]/30 focus:border-[#1C1CA5]/50 rounded-xl px-4 transition-all duration-200">
+                              <SelectTrigger 
+                                className="h-12 border-none rounded-lg focus:ring-1 focus:ring-[var(--gold)] px-4 transition-all duration-200"
+                                style={{
+                                  background: 'var(--navy)',
+                                  color: 'var(--white)',
+                                  border: '1px solid var(--navy-light)'
+                                }}
+                              >
                                 <SelectValue placeholder="Select programme" />
                               </SelectTrigger>
                             </FormControl>
-                            <SelectContent>
-                              <SelectItem value="jee">JEE (Main + Advanced)</SelectItem>
-                              <SelectItem value="neet">NEET / AIIMS</SelectItem>
-                              <SelectItem value="foundation">Foundation (Cl. 6–10)</SelectItem>
-                              <SelectItem value="unsure">Not Sure — Help Me Choose</SelectItem>
+                            <SelectContent style={{ background: 'var(--navy-mid)', color: 'var(--white)', border: '1px solid var(--navy-light)' }}>
+                              <SelectItem value="jee" className="hover:bg-blue-900/50 focus:bg-blue-900/50">JEE (Main + Advanced)</SelectItem>
+                              <SelectItem value="neet" className="hover:bg-blue-900/50 focus:bg-blue-900/50">NEET / AIIMS</SelectItem>
+                              <SelectItem value="foundation" className="hover:bg-blue-900/50 focus:bg-blue-900/50">Foundation (Cl. 6–10)</SelectItem>
+                              <SelectItem value="unsure" className="hover:bg-blue-900/50 focus:bg-blue-900/50">Not Sure — Help Me Choose</SelectItem>
                             </SelectContent>
                           </Select>
-                          <FormMessage />
+                          <FormMessage style={{ color: 'var(--red)' }} />
                         </FormItem>
                       )}
                     />
@@ -339,65 +292,60 @@ export default function AdmissionForm() {
                     control={form.control}
                     name="branchPref"
                     render={({ field }) => (
-                      <FormItem className="space-y-1.5">
-                        <FormLabel className="text-gray-600 font-medium text-[13px]">
+                      <FormItem className="space-y-2">
+                        <FormLabel style={{ color: 'var(--text-muted)', fontFamily: 'var(--font-body)' }}>
                           Preferred Centre{" "}
-                          <span className="text-gray-300 font-normal">(Optional)</span>
+                          <span style={{ color: 'var(--navy-light)' }} className="font-normal">(Optional)</span>
                         </FormLabel>
                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                           <FormControl>
-                            <SelectTrigger className="h-12 text-sm bg-gray-50/80 border border-gray-200/80 focus:ring-2 focus:ring-[#1C1CA5]/30 focus:border-[#1C1CA5]/50 rounded-xl px-4 transition-all duration-200">
+                            <SelectTrigger 
+                              className="h-12 border-none rounded-lg focus:ring-1 focus:ring-[var(--gold)] px-4 transition-all duration-200"
+                              style={{
+                                background: 'var(--navy)',
+                                color: 'var(--white)',
+                                border: '1px solid var(--navy-light)'
+                              }}
+                            >
                               <SelectValue placeholder="Select your nearest centre" />
                             </SelectTrigger>
                           </FormControl>
-                          <SelectContent>
-                            <SelectItem value="Sakchi-Jamshedpur">Sakchi, Jamshedpur (Main Branch)</SelectItem>
-                            <SelectItem value="Bistupur-Jamshedpur">Bistupur, Jamshedpur</SelectItem>
-                            <SelectItem value="Bokaro">Bokaro Steel City</SelectItem>
-                            <SelectItem value="Dhanbad">Dhanbad</SelectItem>
+                          <SelectContent style={{ background: 'var(--navy-mid)', color: 'var(--white)', border: '1px solid var(--navy-light)' }}>
+                            <SelectItem value="Sakchi-Jamshedpur" className="hover:bg-blue-900/50 focus:bg-blue-900/50">Sakchi, Jamshedpur (Main Branch)</SelectItem>
+                            <SelectItem value="Ranchi" className="hover:bg-blue-900/50 focus:bg-blue-900/50">Lalpur, Ranchi</SelectItem>
+                            <SelectItem value="Sundarnagar-Jamshedpur" className="hover:bg-blue-900/50 focus:bg-blue-900/50">Sundarnagar, Jamshedpur</SelectItem>
+                            <SelectItem value="Baridih-Jamshedpur" className="hover:bg-blue-900/50 focus:bg-blue-900/50">Baridih, Jamshedpur</SelectItem>
+                            <SelectItem value="Bistupur-Jamshedpur" className="hover:bg-blue-900/50 focus:bg-blue-900/50">Bistupur, Jamshedpur</SelectItem>
                           </SelectContent>
                         </Select>
-                        <FormMessage />
+                        <FormMessage style={{ color: 'var(--red)' }} />
                       </FormItem>
                     )}
                   />
 
                   {/* Submit Button */}
-                  <div className="pt-3">
+                  <div className="pt-6">
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="group relative w-full h-14 text-base font-heading font-bold rounded-xl transition-all duration-300 flex items-center justify-center gap-3 disabled:opacity-60 disabled:cursor-not-allowed overflow-hidden"
+                      className="w-full h-14 rounded-full transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed hover:opacity-90"
                       style={{
-                        background: "linear-gradient(135deg, #1C1CA5 0%, #2d1b69 50%, #1C1CA5 100%)",
-                        color: "#FEFD12",
-                        boxShadow: "0 4px 20px rgba(28, 28, 165, 0.3), inset 0 1px 0 rgba(255,255,255,0.1)",
+                        background: 'var(--gold)',
+                        color: 'var(--navy)',
+                        fontFamily: 'var(--font-display)',
+                        fontWeight: 800,
+                        fontSize: '16px',
                       }}
                     >
-                      {/* Hover glow overlay */}
-                      <span className="absolute inset-0 bg-gradient-to-r from-[#FEFD12]/0 via-[#FEFD12]/10 to-[#FEFD12]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                      <span className="relative flex items-center gap-3">
-                        {isSubmitting ? (
-                          <>
-                            <Loader2 className="w-5 h-5 animate-spin" />
-                            Submitting…
-                          </>
-                        ) : (
-                          <>
-                            Submit Enquiry — It&apos;s Free
-                            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                          </>
-                        )}
-                      </span>
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="w-5 h-5 animate-spin" />
+                          Submitting…
+                        </>
+                      ) : (
+                        "Book Free Counselling — It's Free"
+                      )}
                     </button>
-
-                    <p className="text-[11px] text-gray-300 text-center mt-4 leading-relaxed">
-                      By submitting, you agree to our{" "}
-                      <span className="underline cursor-pointer text-gray-400 hover:text-gray-600 transition-colors">
-                        Privacy Policy
-                      </span>
-                      . We respect your data and will never spam you.
-                    </p>
                   </div>
 
                 </form>

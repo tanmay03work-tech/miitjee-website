@@ -1,6 +1,5 @@
-import PageHero from "@/components/ui/PageHero";
 import * as motion from "framer-motion/client";
-import { CheckCircle2, Building2, TrendingUp, Users, Target, BookOpen } from "lucide-react";
+import { CheckCircle2, Building2, TrendingUp, Target } from "lucide-react";
 
 export const metadata = {
   title: "Franchise Opportunities | MIITJEE Classes",
@@ -45,74 +44,191 @@ const BRAND_VALUES = [
 
 export default function FranchiseOpportunitiesPage() {
   return (
-    <div className="min-h-screen bg-gray-50 pb-20">
-      <PageHero
-        title="Franchise"
-        highlight="Opportunities"
-        description="Partner with Eastern India's premier educational institute and build a successful business."
-      />
-
-      <div className="container mx-auto px-4 max-w-7xl py-20 space-y-24">
-        
-        {/* Intro Section */}
-        <section className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="space-y-6 text-gray-700 text-lg leading-relaxed"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-blue-dark font-poppins mb-8">
-              Franchise Information
-            </h2>
-            <p>
-              With the Education Industry witnessing massive growth and reach, monetary and social benefits is what a balanced investor can expect year after year. Education Industry is one of the most eminent emerging sectors in the service Industry. A sector which is not only growing with the increasing population but also due to Indians' fixation with education, good educational infrastructure and ambitious parents which have made it a recession-proof coaching industry in the country.
-            </p>
-            <p>
-              Entrepreneurs from organized sectors are tapping into this huge industry. MIITJEE CLASSES PVT LTD is one of the largest players in Bihar and Jharkhand of this industry. Our company offers comprehensive test preparatory services to students for preparation of Medical and Engineering Entrance Exams, School/Board Exams and other Competitive and Scholarship Exams such as NTSE, KVPY, and Olympiads.
-            </p>
-            <p>
-              With 20 years of operational experience in the test preparatory industry, a number of selections in Medical & Engineering Entrance Exams, with 5 MIITJEE centres (including franchisee), and a student count of more than 10000, we have become one of the recognized names in the education field in BIHAR and Jharkhand.
-            </p>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="bg-white p-10 rounded-3xl shadow-xl border-t-4 border-brand-yellow-bright"
-          >
-            <h3 className="text-2xl font-bold text-brand-blue-dark mb-6 flex items-center gap-3">
-              <Building2 className="text-brand-yellow-bright w-8 h-8" />
-              Join Our Network
-            </h3>
-            <p className="text-gray-600 mb-8">
-              Individuals or Companies who aspire to make a difference by transforming the lives of students are invited to join the MIITJEE brand. If you have:
-            </p>
-            <ul className="space-y-4 mb-10">
-              {['A will to succeed', 'Relevant skills and attitude to grow', 'Ideas that can change the face of the industry', 'Experience and knowledge of the Test Preparatory Industry'].map(item => (
-                <li key={item} className="flex items-center gap-3 text-brand-blue-dark font-medium">
-                  <CheckCircle2 className="text-brand-yellow-bright w-5 h-5 flex-shrink-0" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100">
-              <p className="font-bold text-brand-blue-dark mb-2">Connect with us at:</p>
-              <p className="text-gray-600">Registered Office: MIITJEE HOUSE SAKCHI, JAMSHEDPUR Jharkhand</p>
-              <p className="text-brand-blue-dark font-bold text-xl mt-2 flex items-center gap-2">
-                📞 8906000160
+    <div className="flex flex-col min-h-screen">
+      
+      {/* HERO */}
+      <section 
+        className="relative flex items-center"
+        style={{
+          background: 'var(--navy)',
+          minHeight: '80vh',
+          paddingTop: 'calc(var(--nav-height) + 4rem)',
+          paddingBottom: '4rem'
+        }}
+      >
+        <div className="max-w-7xl mx-auto px-6 w-full">
+          <div className="text-center max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <h1 
+                style={{
+                  fontFamily: 'var(--font-display)',
+                  fontWeight: 900,
+                  fontSize: 'clamp(48px, 6vw, 72px)',
+                  color: '#fff',
+                  lineHeight: 1.1,
+                  marginBottom: '1.5rem'
+                }}
+              >
+                Franchise <span style={{ color: 'var(--gold)' }}>Opportunities</span>
+              </h1>
+              <p 
+                style={{
+                  fontFamily: 'var(--font-body)',
+                  fontSize: '18px',
+                  color: 'var(--text-muted)',
+                  lineHeight: 1.6,
+                }}
+              >
+                Partner with Eastern India's premier educational institute and build a<br/>
+                successful business.
               </p>
-            </div>
-          </motion.div>
-        </section>
+            </motion.div>
+          </div>
+        </div>
+      </section>
 
-        {/* Brand Value Section */}
-        <section>
+      {/* FRANCHISE INFO */}
+      <section style={{ background: '#ffffff', padding: 'var(--section-pad)' }}>
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            
+            {/* Left: Info Text */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="space-y-6"
+            >
+              <h2 
+                style={{
+                  fontFamily: 'var(--font-display)',
+                  fontWeight: 800,
+                  fontSize: 'clamp(32px, 4vw, 48px)',
+                  color: 'var(--navy)',
+                  lineHeight: 1.2,
+                  marginBottom: '1.5rem'
+                }}
+              >
+                Franchise <span style={{ color: 'var(--gold)' }}>Information</span>
+              </h2>
+              <div 
+                style={{
+                  fontFamily: 'var(--font-body)',
+                  fontSize: '18px',
+                  color: 'var(--text-secondary)',
+                  lineHeight: 1.8
+                }}
+              >
+                <p className="mb-4">
+                  With the Education Industry witnessing massive growth and reach, monetary and social benefits is what a balanced investor can expect year after year. Education Industry is one of the most eminent emerging sectors in the service Industry. A sector which is not only growing with the increasing population but also due to Indians' fixation with education, good educational infrastructure and ambitious parents which have made it a recession-proof coaching industry in the country.
+                </p>
+                <p className="mb-4">
+                  Entrepreneurs from organized sectors are tapping into this huge industry. MIITJEE CLASSES PVT LTD is one of the largest players in Bihar and Jharkhand of this industry. Our company offers comprehensive test preparatory services to students for preparation of Medical and Engineering Entrance Exams, School/Board Exams and other Competitive and Scholarship Exams such as NTSE, KVPY, and Olympiads.
+                </p>
+                <p>
+                  With 20 years of operational experience in the test preparatory industry, a number of selections in Medical & Engineering Entrance Exams, with 5 MIITJEE centres (including franchisee), and a student count of more than 10000, we have become one of the recognized names in the education field in BIHAR and Jharkhand.
+                </p>
+              </div>
+            </motion.div>
+            
+            {/* Right: Join Network Card */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              style={{
+                background: 'var(--off-white)',
+                borderTop: '4px solid var(--gold)',
+                padding: '3rem',
+                borderRadius: '8px'
+              }}
+            >
+              <h3 
+                className="flex items-center gap-3"
+                style={{
+                  fontFamily: 'var(--font-display)',
+                  fontWeight: 800,
+                  fontSize: '28px',
+                  color: 'var(--navy)',
+                  marginBottom: '1.5rem'
+                }}
+              >
+                <Building2 className="w-8 h-8" style={{ color: 'var(--gold)' }} />
+                Join Our Network
+              </h3>
+              <p 
+                style={{
+                  fontFamily: 'var(--font-body)',
+                  fontSize: '16px',
+                  color: 'var(--text-secondary)',
+                  marginBottom: '2rem',
+                  lineHeight: 1.6
+                }}
+              >
+                Individuals or Companies who aspire to make a difference by transforming the lives of students are invited to join the MIITJEE brand. If you have:
+              </p>
+              <ul className="space-y-4 mb-10">
+                {['A will to succeed', 'Relevant skills and attitude to grow', 'Ideas that can change the face of the industry', 'Experience and knowledge of the Test Preparatory Industry'].map((item, i) => (
+                  <li key={i} className="flex items-center gap-3">
+                    <CheckCircle2 className="w-5 h-5 flex-shrink-0" style={{ color: 'var(--gold)' }} />
+                    <span style={{ fontFamily: 'var(--font-body)', fontSize: '16px', color: 'var(--text-secondary)' }}>
+                      {item}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+              <div 
+                style={{
+                  background: '#ffffff',
+                  padding: '1.5rem',
+                  borderRadius: '8px',
+                  border: '1px solid #e2e8f0'
+                }}
+              >
+                <p style={{ fontFamily: 'var(--font-heading)', fontWeight: 600, color: 'var(--gold-dim)', marginBottom: '0.5rem' }}>
+                  Connect with us at:
+                </p>
+                <p style={{ fontFamily: 'var(--font-body)', fontSize: '14px', color: 'var(--text-secondary)', marginBottom: '1rem' }}>
+                  Registered Office: MIITJEE HOUSE SAKCHI, JAMSHEDPUR Jharkhand
+                </p>
+                <p style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '24px', color: 'var(--navy)' }}>
+                  📞 8906000160
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* BRAND VALUES */}
+      <section style={{ background: 'var(--navy)', padding: 'var(--section-pad)' }}>
+        <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold text-brand-blue-dark font-poppins inline-block border-b-4 border-brand-yellow-bright pb-4">
-              Brand Value of MIITJEE
+            <h2 
+              style={{
+                fontFamily: 'var(--font-display)',
+                fontWeight: 800,
+                fontSize: 'clamp(32px, 4vw, 48px)',
+                color: '#fff',
+                marginBottom: '1rem'
+              }}
+            >
+              Brand Value of <span style={{ color: 'var(--gold)' }}>MIITJEE</span>
             </h2>
-            <p className="mt-6 text-gray-600 max-w-3xl mx-auto text-lg">
+            <p 
+              style={{
+                fontFamily: 'var(--font-body)',
+                fontSize: '18px',
+                color: 'var(--text-muted)',
+                maxWidth: '800px',
+                margin: '0 auto',
+                lineHeight: 1.6
+              }}
+            >
               MIITJEE being a recognised brand in the test preparatory services helps and supports you to make a move in the evolving test preparatory industry and assists in aiming at your goals. With MIITJEE comes its brand value along with the well tested business model and additional advantages like:
             </p>
           </div>
@@ -125,44 +241,80 @@ export default function FranchiseOpportunitiesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: (idx % 3) * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md border border-gray-100 transition-all flex items-start gap-4"
+                className="flex items-start gap-4"
+                style={{
+                  background: 'var(--navy-mid)',
+                  border: '1px solid var(--navy-light)',
+                  borderLeft: '4px solid var(--gold)',
+                  padding: '2rem',
+                  borderRadius: '8px'
+                }}
               >
-                <div className="bg-brand-yellow-bright/20 p-2 rounded-xl flex-shrink-0 mt-1">
-                  <TrendingUp className="w-5 h-5 text-brand-blue-deep" />
-                </div>
-                <p className="text-sm text-gray-700 leading-relaxed">{value}</p>
+                <TrendingUp className="w-6 h-6 flex-shrink-0" style={{ color: 'var(--gold)', marginTop: '4px' }} />
+                <p 
+                  style={{
+                    fontFamily: 'var(--font-body)',
+                    fontSize: '15px',
+                    color: '#fff',
+                    lineHeight: 1.6
+                  }}
+                >
+                  {value}
+                </p>
               </motion.div>
             ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Strengths Section */}
-        <section className="bg-brand-blue-dark rounded-3xl p-10 md:p-16 relative overflow-hidden text-white shadow-2xl">
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-blue-deep rounded-full blur-3xl opacity-50 -z-0 translate-x-1/3 -translate-y-1/3" />
+      {/* STRENGTHS */}
+      <section style={{ background: 'var(--off-white)', padding: 'var(--section-pad)' }}>
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 
+            className="text-center"
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontWeight: 800,
+              fontSize: 'clamp(32px, 4vw, 48px)',
+              color: 'var(--navy)',
+              marginBottom: '3rem'
+            }}
+          >
+            Our <span style={{ color: 'var(--gold)' }}>Strengths</span>
+          </h2>
           
-          <div className="relative z-10">
-            <h2 className="text-3xl md:text-4xl font-bold font-poppins mb-12 text-center">
-              Our <span className="text-brand-yellow-bright">Strengths</span>
-            </h2>
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-6">
-              {STRENGTHS.map((strength, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  className="flex items-center gap-3 bg-white/5 p-4 rounded-xl backdrop-blur-sm border border-white/10"
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {STRENGTHS.map((strength, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="flex items-center gap-4 bg-white"
+                style={{
+                  padding: '1.5rem',
+                  borderRadius: '8px',
+                  border: '1px solid #e2e8f0',
+                  boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)'
+                }}
+              >
+                <Target className="w-6 h-6 flex-shrink-0" style={{ color: 'var(--gold-dim)' }} />
+                <span 
+                  style={{
+                    fontFamily: 'var(--font-body)',
+                    fontSize: '16px',
+                    fontWeight: 600,
+                    color: 'var(--navy)'
+                  }}
                 >
-                  <Target className="w-5 h-5 text-brand-yellow-bright flex-shrink-0" />
-                  <span className="text-sm md:text-base font-medium">{strength}</span>
-                </motion.div>
-              ))}
-            </div>
+                  {strength}
+                </span>
+              </motion.div>
+            ))}
           </div>
-        </section>
-
-      </div>
+        </div>
+      </section>
+      
     </div>
   );
 }

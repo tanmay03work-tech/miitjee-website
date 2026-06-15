@@ -12,7 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/programs/neet',
     '/programs/foundation',
     '/scholarship',
-    '/contact',
+    '/apply',
     '/gallery',
     '/faculty',
     '/results',
