@@ -240,6 +240,30 @@ export interface Database {
         }
         Relationships: []
       }
+      featured_reels: {
+        Row: {
+          id: string
+          url: string
+          is_published: boolean | null
+          sort_order: number | null
+          created_at: string | null
+        }
+        Insert: {
+          id?: string
+          url: string
+          is_published?: boolean | null
+          sort_order?: number | null
+          created_at?: string | null
+        }
+        Update: {
+          id?: string
+          url?: string
+          is_published?: boolean | null
+          sort_order?: number | null
+          created_at?: string | null
+        }
+        Relationships: []
+      }
       testimonials: {
         Row: {
           id: string
@@ -311,6 +335,36 @@ export interface Database {
           category?: string | null
           is_published?: boolean | null
           sort_order?: number | null
+          created_at?: string | null
+        }
+        Relationships: []
+      }
+      result_images: {
+        Row: {
+          id: string
+          title: string | null
+          photo_url: string
+          category: string
+          sort_order: number | null
+          is_published: boolean | null
+          created_at: string | null
+        }
+        Insert: {
+          id?: string
+          title?: string | null
+          photo_url: string
+          category: string
+          sort_order?: number | null
+          is_published?: boolean | null
+          created_at?: string | null
+        }
+        Update: {
+          id?: string
+          title?: string | null
+          photo_url?: string
+          category?: string
+          sort_order?: number | null
+          is_published?: boolean | null
           created_at?: string | null
         }
         Relationships: []

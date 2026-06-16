@@ -1,5 +1,6 @@
 import { Lock } from 'lucide-react';
 import { NEET_MOCK_PAPERS } from '@/lib/constants/mock-papers';
+import Link from 'next/link';
 
 interface MockPaperCardProps {
   paper: typeof NEET_MOCK_PAPERS[0];
@@ -35,9 +36,12 @@ export function MockPaperCard({ paper }: MockPaperCardProps) {
       </div>
       
       <div className="mt-auto pt-6 border-t border-gray-100">
-        <button className="w-full inline-flex items-center justify-center gap-2 bg-red-600 hover:bg-red-500 text-white font-display font-bold text-sm py-3 px-4 rounded-lg transition-colors group-hover:shadow-[0_0_15px_rgba(220,38,38,0.3)]">
+        <Link 
+          href="/test-series/neet/register"
+          className="w-full inline-flex items-center justify-center gap-2 bg-red-600 hover:bg-red-500 text-white font-display font-bold text-sm py-3 px-4 rounded-lg transition-colors group-hover:shadow-[0_0_15px_rgba(220,38,38,0.3)]"
+        >
           Unlock With Details →
-        </button>
+        </Link>
       </div>
     </div>
   );

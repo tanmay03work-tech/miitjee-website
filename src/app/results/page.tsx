@@ -1,12 +1,27 @@
 import Link from "next/link";
 import { ArrowRight, Trophy, Star } from "lucide-react";
+import { createClient } from "@/lib/supabase/server";
+import { ResultImageGrid } from "@/components/results/ResultImageGrid";
 
 export const metadata = {
   title: "Results & Selections | MIITJEE Classes",
   description: "Explore the outstanding results of MIITJEE students in JEE Main, JEE Advanced, and NEET examinations.",
 };
 
-export default function ResultsHubPage() {
+export default async function ResultsHubPage() {
+  const supabase = await createClient();
+  const { data: resultImages } = await supabase
+    .from("result_images")
+    .select("*")
+    .eq("is_published", true)
+    .order("sort_order", { ascending: true });
+
+  const snapshots = resultImages?.filter(img => img.category === 'snapshots_2026') || [];
+  const newspapers = resultImages?.filter(img => img.category === 'newspaper_headlines') || [];
+  const jee = resultImages?.filter(img => img.category === 'jee') || [];
+  const neet = resultImages?.filter(img => img.category === 'neet') || [];
+  const boards = resultImages?.filter(img => img.category === 'boards') || [];
+
   return (
     <div className="min-h-screen bg-[#F8FAFC]">
       {/* RESULTS HERO — Trophy Room Aesthetic */}
@@ -216,6 +231,39 @@ export default function ResultsHubPage() {
           </div>
         </div>
       </section>
+
+      {/* DYNAMIC RESULTS GALLERIES */}
+      <ResultImageGrid 
+        title="Class of 2026 Snapshots" 
+        subtitle="Capturing the joy of our successful students and their proud parents."
+        images={snapshots} 
+        theme="light" 
+      />
+
+      <ResultImageGrid 
+        title="In the News" 
+        subtitle="MIITJEE making headlines across top newspapers for unprecedented results."
+        images={newspapers} 
+        theme="dark" 
+      />
+
+      <ResultImageGrid 
+        title="JEE Excellence" 
+        images={jee} 
+        theme="light" 
+      />
+
+      <ResultImageGrid 
+        title="NEET Excellence" 
+        images={neet} 
+        theme="dark" 
+      />
+
+      <ResultImageGrid 
+        title="12th Board Toppers" 
+        images={boards} 
+        theme="light" 
+      />
     </div>
   );
 }

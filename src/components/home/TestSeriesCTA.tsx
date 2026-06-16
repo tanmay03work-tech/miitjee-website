@@ -30,7 +30,7 @@ export default function TestSeriesCTA() {
             </div>
             
             <h2 className="text-3xl md:text-5xl font-bold font-heading text-[#23205D] leading-tight mb-6">
-              5 NEET Mock Test Papers by MIITJEE Faculty — <span className="text-[#1C1CA5]">Absolutely Free</span>
+              Free Re-NEET Test Series by MIITJEE Faculty — <span className="text-[#1C1CA5]">Absolutely Free</span>
             </h2>
             
             <ul className="space-y-4 mb-8">
@@ -112,7 +112,7 @@ export default function TestSeriesCTA() {
                 </div>
 
                 <div className="mt-auto pt-6 border-t border-gray-100 flex justify-between items-center text-sm font-sans text-gray-500">
-                  <span>200 Questions</span>
+                  <span>180 Questions</span>
                   <span>720 Marks</span>
                 </div>
               </motion.div>

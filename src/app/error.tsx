@@ -21,7 +21,7 @@ export default function ErrorPage({
     <div className="min-h-screen bg-gray-50 flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-lg w-full text-center space-y-8 bg-white p-10 rounded-3xl shadow-xl border border-gray-100">
         <div>
-          <h1 className="text-6xl font-bold font-poppins text-miitjee-navy">Oops!</h1>
+          <h1 className="text-6xl font-bold font-poppins text-blue-900">Oops!</h1>
           <h2 className="mt-6 text-2xl font-extrabold text-gray-900 font-inter">
             Something went wrong
           </h2>
@@ -31,20 +31,19 @@ export default function ErrorPage({
         </div>
         
         <div className="pt-4 flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Button 
+          <button 
             onClick={reset}
-            size="lg" 
-            variant="outline"
-            className="w-full sm:w-auto font-semibold px-8 py-6 text-lg rounded-full flex items-center justify-center gap-2 border-miitjee-navy text-miitjee-navy hover:bg-gray-50"
+            className="inline-flex items-center justify-center px-8 py-4 border-2 border-[#23205D] text-[#23205D] hover:bg-gray-50 font-bold text-lg rounded-full gap-2 transition-colors w-full sm:w-auto"
           >
             <RefreshCcw className="w-5 h-5" />
             Try again
-          </Button>
-          <Link href="/" className="w-full sm:w-auto">
-            <Button size="lg" className="w-full sm:w-auto bg-miitjee-yellow text-miitjee-navy hover:bg-yellow-400 font-semibold px-8 py-6 text-lg rounded-full flex items-center justify-center gap-2">
-              <Home className="w-5 h-5" />
-              Back to Home
-            </Button>
+          </button>
+          <Link 
+            href="/" 
+            className="inline-flex items-center justify-center px-8 py-4 bg-[#FFD600] text-[#23205D] hover:bg-[#E6C200] font-bold text-lg rounded-full gap-2 transition-colors w-full sm:w-auto"
+          >
+            <Home className="w-5 h-5" />
+            Back to Home
           </Link>
         </div>
       </div>

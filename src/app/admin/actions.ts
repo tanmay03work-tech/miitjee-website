@@ -33,6 +33,41 @@ export async function toggleResultStatus(id: string, field: 'is_published' | 'is
   revalidatePath('/admin/results')
 }
 
+// --- RESULT IMAGES ACTIONS ---
+export async function upsertResultImage(data: any) {
+  const supabase = await createClient()
+  const { id, ...rest } = data
+  
+  if (id) {
+    const { error } = await supabase.from('result_images').update(rest).eq('id', id)
+    if (error) throw new Error(error.message)
+  } else {
+    const { error } = await supabase.from('result_images').insert(rest)
+    if (error) throw new Error(error.message)
+  }
+  revalidatePath('/admin/results')
+  revalidatePath('/results')
+  revalidatePath('/')
+}
+
+export async function deleteResultImage(id: string) {
+  const supabase = await createClient()
+  const { error } = await supabase.from('result_images').delete().eq('id', id)
+  if (error) throw new Error(error.message)
+  revalidatePath('/admin/results')
+  revalidatePath('/results')
+  revalidatePath('/')
+}
+
+export async function toggleResultImageStatus(id: string, currentValue: boolean) {
+  const supabase = await createClient()
+  const { error } = await supabase.from('result_images').update({ is_published: !currentValue }).eq('id', id)
+  if (error) throw new Error(error.message)
+  revalidatePath('/admin/results')
+  revalidatePath('/results')
+  revalidatePath('/')
+}
+
 // --- FACULTY ACTIONS ---
 export async function upsertFaculty(data: any) {
   const supabase = await createClient()
@@ -154,4 +189,37 @@ export async function updateSiteSetting(key: string, value: string) {
 
   revalidatePath('/admin/settings')
   revalidatePath('/') // settings often affect homepage
+}
+
+// --- FEATURED REELS ACTIONS ---
+export async function insertReel(data: any) {
+  const supabase = await createClient()
+  const { error } = await supabase.from('featured_reels').insert(data)
+  if (error) throw new Error(error.message)
+  revalidatePath('/admin/reels')
+  revalidatePath('/')
+}
+
+export async function deleteReel(id: string) {
+  const supabase = await createClient()
+  const { error } = await supabase.from('featured_reels').delete().eq('id', id)
+  if (error) throw new Error(error.message)
+  revalidatePath('/admin/reels')
+  revalidatePath('/')
+}
+
+export async function toggleReelStatus(id: string, currentValue: boolean) {
+  const supabase = await createClient()
+  const { error } = await supabase.from('featured_reels').update({ is_published: !currentValue }).eq('id', id)
+  if (error) throw new Error(error.message)
+  revalidatePath('/admin/reels')
+  revalidatePath('/')
+}
+
+export async function updateReelSortOrder(id: string, newOrder: number) {
+  const supabase = await createClient()
+  const { error } = await supabase.from('featured_reels').update({ sort_order: newOrder }).eq('id', id)
+  if (error) throw new Error(error.message)
+  revalidatePath('/admin/reels')
+  revalidatePath('/')
 }

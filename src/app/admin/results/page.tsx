@@ -12,13 +12,21 @@ export default async function AdminResultsPage() {
     .order('year', { ascending: false })
     .order('sort_order', { ascending: true })
 
-  if (error) {
-    console.error("Error fetching results:", error)
+  const { data: resultImages, error: error2 } = await supabase
+    .from('result_images')
+    .select('*')
+    .order('sort_order', { ascending: true })
+
+  if (error || error2) {
+    console.error("Error fetching results:", error || error2)
   }
 
   return (
     <div className="p-6">
-      <ResultsClient initialData={results || []} />
+      <ResultsClient 
+        initialData={results || []} 
+        initialResultImages={resultImages || []} 
+      />
     </div>
   )
 }

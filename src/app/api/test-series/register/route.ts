@@ -15,9 +15,6 @@ export async function POST(request: Request) {
 
     const supabase = await createClient();
 
-    // Insert into Supabase test_series_leads table
-    // NOTE: Sending dummy values for removed fields to prevent 500 errors 
-    // until the Supabase database schema is updated to remove these columns.
     const { error } = await supabase
       .from('test_series_leads')
       .insert([
@@ -25,12 +22,8 @@ export async function POST(request: Request) {
           name: body.name,
           phone: body.phone,
           email: body.email || null,
-          series_type: 'neet',
-          class_level: 'N/A', // Dummy value
-          target_year: 'N/A', // Dummy value
-          city: 'N/A', // Dummy value
-          branch_pref: 'N/A' // Dummy value
-        } as any
+          series_type: 'neet'
+        }
       ]);
 
     if (error) {

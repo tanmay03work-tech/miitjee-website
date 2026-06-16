@@ -66,7 +66,7 @@ export function RegisterForm() {
           </label>
           <input
             {...register("name")}
-            className="w-full px-4 py-2 border border-slate-300 rounded-md focus:ring-2 focus:ring-[#1C1CA5] focus:border-transparent outline-none transition-all font-inter"
+            className="w-full px-4 py-2 border border-slate-300 rounded-md focus:ring-2 focus:ring-[#1C1CA5] focus:border-transparent outline-none transition-all font-inter text-slate-900"
             placeholder="e.g. Rahul Sharma"
           />
           {errors.name && (
@@ -82,7 +82,7 @@ export function RegisterForm() {
           <input
             {...register("email")}
             type="email"
-            className="w-full px-4 py-2 border border-slate-300 rounded-md focus:ring-2 focus:ring-[#1C1CA5] focus:border-transparent outline-none transition-all font-inter"
+            className="w-full px-4 py-2 border border-slate-300 rounded-md focus:ring-2 focus:ring-[#1C1CA5] focus:border-transparent outline-none transition-all font-inter text-slate-900"
             placeholder="your@email.com"
           />
           {errors.email && (
@@ -97,7 +97,7 @@ export function RegisterForm() {
           </label>
           <input
             {...register("phone")}
-            className="w-full px-4 py-2 border border-slate-300 rounded-md focus:ring-2 focus:ring-[#1C1CA5] focus:border-transparent outline-none transition-all font-inter"
+            className="w-full px-4 py-2 border border-slate-300 rounded-md focus:ring-2 focus:ring-[#1C1CA5] focus:border-transparent outline-none transition-all font-inter text-slate-900"
             placeholder="10-digit mobile number"
             maxLength={10}
           />
@@ -110,7 +110,7 @@ export function RegisterForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full bg-[#FEFD12] hover:bg-yellow-400 text-[#23205D] font-bold font-poppins text-lg py-4 px-6 rounded-lg transition-colors flex items-center justify-center disabled:opacity-70"
+        className="w-full bg-[var(--gold)] hover:bg-yellow-400 text-[var(--navy)] font-bold font-poppins text-lg py-4 px-6 rounded-lg transition-colors flex items-center justify-center disabled:opacity-70"
       >
         {isSubmitting ? "Submitting..." : "Get My Free Papers →"}
       </button>

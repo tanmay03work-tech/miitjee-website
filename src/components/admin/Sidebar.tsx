@@ -9,7 +9,8 @@ import {
   FileText, 
   Trophy, 
   GraduationCap, 
-  Image as ImageIcon, 
+  Image as ImageIcon,
+  Video,
   MessageSquareQuote, 
   Settings,
   LogOut,
@@ -26,6 +27,7 @@ const navLinks = [
   { name: 'Results', href: '/admin/results', icon: GraduationCap },
   { name: 'Faculty', href: '/admin/faculty', icon: Users },
   { name: 'Gallery', href: '/admin/gallery', icon: ImageIcon },
+  { name: 'Featured Reels', href: '/admin/reels', icon: Video },
   { name: 'Testimonials', href: '/admin/testimonials', icon: MessageSquareQuote },
   { name: 'Settings', href: '/admin/settings', icon: Settings },
 ]

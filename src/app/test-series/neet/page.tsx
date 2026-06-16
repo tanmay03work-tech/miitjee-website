@@ -4,7 +4,7 @@ import { MockPaperCard } from '@/components/test-series/MockPaperCard';
 
 export const metadata = {
   title: 'Free NEET Mock Test Papers | MIITJEE',
-  description: 'Download 5 free NEET mock test papers prepared by expert MIITJEE faculty.',
+  description: 'Download free NEET mock test papers prepared by expert MIITJEE faculty.',
 };
 
 export default function NeetLandingPage() {
@@ -29,7 +29,7 @@ export default function NeetLandingPage() {
 
           {/* H1 */}
           <h1 className="text-4xl md:text-5xl lg:text-[64px] font-display font-black leading-[1.1] mb-6 text-white">
-            5 FREE NEET Mock <br className="hidden md:block" /> 
+            FREE NEET Mock <br className="hidden md:block" /> 
             <span className="text-[var(--gold)]">Test Papers</span>
           </h1>
 
@@ -67,7 +67,7 @@ export default function NeetLandingPage() {
               href="/test-series/neet/register"
               className="inline-flex items-center justify-center bg-[var(--gold)] hover:bg-yellow-400 text-[var(--navy)] text-lg md:text-xl font-display font-extrabold px-10 py-5 rounded-full shadow-[0_0_30px_rgba(255,214,0,0.4)] hover:shadow-[0_0_40px_rgba(255,214,0,0.6)] hover:-translate-y-1 transition-all w-full sm:w-auto"
             >
-              Download All 5 Papers Free →
+              Download All Papers Free →
             </Link>
             
             <p className="mt-5 text-white/50 text-[13px] font-medium tracking-wide">
@@ -85,18 +85,12 @@ export default function NeetLandingPage() {
               What&apos;s Inside
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              You will get immediate access to all 5 full-syllabus mock papers covering Physics, Chemistry, and Biology.
+              You will get immediate access to all full-syllabus mock papers covering Physics, Chemistry, and Biology.
             </p>
           </div>
 
-          {/* Desktop: 3 on top, 2 on bottom. Mobile: 1 col */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-            {NEET_MOCK_PAPERS.slice(0, 3).map((paper) => (
-              <MockPaperCard key={paper.id} paper={paper} />
-            ))}
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {NEET_MOCK_PAPERS.slice(3, 5).map((paper) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-6">
+            {NEET_MOCK_PAPERS.map((paper) => (
               <MockPaperCard key={paper.id} paper={paper} />
             ))}
           </div>
@@ -110,7 +104,7 @@ export default function NeetLandingPage() {
             Ready to start your NEET preparation?
           </h2>
           <p className="text-[var(--text-muted)] text-lg mb-10">
-            Fill your details and get all 5 papers instantly — completely free.
+            Fill your details and get all papers instantly — completely free.
           </p>
           <Link
             href="/test-series/neet/register"

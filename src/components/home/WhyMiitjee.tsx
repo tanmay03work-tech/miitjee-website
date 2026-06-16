@@ -24,32 +24,30 @@ export default function WhyMiitjee() {
 
   return (
     <section 
+      className="py-16 relative overflow-hidden"
       style={{
         backgroundColor: '#FFFFFF',
         backgroundImage: 'radial-gradient(rgba(17, 34, 64, 0.05) 1px, transparent 1px)',
         backgroundSize: '32px 32px',
-        padding: 'var(--section-pad)',
-        overflow: 'hidden',
-        position: 'relative'
       }}
     >
       {/* Decorative Glows */}
       <div 
-        className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full blur-[100px] opacity-40 pointer-events-none"
+        className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-[100px] opacity-40 pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(255, 214, 0, 0.15) 0%, transparent 70%)', transform: 'translate(30%, -30%)' }}
       />
       <div 
-        className="absolute bottom-0 left-0 w-[600px] h-[600px] rounded-full blur-[100px] opacity-40 pointer-events-none"
+        className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full blur-[100px] opacity-40 pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(30, 58, 95, 0.1) 0%, transparent 70%)', transform: 'translate(-30%, 30%)' }}
       />
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
         {/* LEFT side */}
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.8 }}
-          className="relative flex flex-col justify-center h-full min-h-[400px]"
+          className="relative flex flex-col justify-center h-full min-h-[250px]"
         >
           {/* Giant decorative background number */}
           <div 
@@ -57,26 +55,26 @@ export default function WhyMiitjee() {
             style={{
               fontFamily: 'var(--font-display)',
               fontWeight: 900,
-              fontSize: '180px',
+              fontSize: '140px',
               background: 'linear-gradient(180deg, rgba(17,34,64,0.08) 0%, rgba(17,34,64,0.01) 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               lineHeight: 1,
-              left: '-20px'
+              left: '-10px'
             }}
           >
             26
           </div>
           
-          <div className="relative z-10 pl-4 md:pl-12">
+          <div className="relative z-10 pl-2 md:pl-8">
             <div 
               style={{
                 fontFamily: 'var(--font-display)',
                 fontWeight: 800,
-                fontSize: 'clamp(36px, 5vw, 48px)',
+                fontSize: 'clamp(32px, 4vw, 42px)',
                 color: 'var(--navy)',
                 lineHeight: 1.1,
-                marginBottom: '8px'
+                marginBottom: '4px'
               }}
             >
               Years of
@@ -85,10 +83,10 @@ export default function WhyMiitjee() {
               style={{
                 fontFamily: 'var(--font-display)',
                 fontWeight: 900,
-                fontSize: 'clamp(48px, 6vw, 64px)',
+                fontSize: 'clamp(42px, 5vw, 56px)',
                 color: 'var(--gold-dim)',
                 lineHeight: 1.1,
-                marginBottom: '24px'
+                marginBottom: '16px'
               }}
             >
               Excellence
@@ -97,7 +95,7 @@ export default function WhyMiitjee() {
               style={{
                 fontFamily: 'var(--font-body)',
                 fontWeight: 500,
-                fontSize: '16px',
+                fontSize: '14px',
                 color: 'var(--navy-light)',
                 letterSpacing: '1px',
                 textTransform: 'uppercase'
@@ -114,15 +112,15 @@ export default function WhyMiitjee() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="flex flex-col gap-8"
+          className="flex flex-col gap-5"
         >
           {proofPoints.map((point, idx) => (
-            <motion.div key={idx} variants={itemVariants} className="flex items-start gap-4">
+            <motion.div key={idx} variants={itemVariants} className="flex items-start gap-3">
               <div 
-                className="flex-shrink-0 mt-1"
+                className="flex-shrink-0 mt-0.5"
                 style={{
                   color: 'var(--gold)',
-                  fontSize: '20px',
+                  fontSize: '18px',
                   lineHeight: 1
                 }}
               >
@@ -133,7 +131,7 @@ export default function WhyMiitjee() {
                   style={{
                     fontFamily: 'var(--font-display)',
                     fontWeight: 700,
-                    fontSize: '18px',
+                    fontSize: '16px',
                     color: 'var(--navy)',
                   }}
                 >
@@ -143,7 +141,7 @@ export default function WhyMiitjee() {
                   style={{
                     fontFamily: 'var(--font-body)',
                     fontWeight: 400,
-                    fontSize: '16px',
+                    fontSize: '15px',
                     color: '#475569'
                   }}
                 >

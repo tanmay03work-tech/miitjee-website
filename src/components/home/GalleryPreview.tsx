@@ -24,10 +24,10 @@ export default function GalleryPreview({ images }: GalleryPreviewProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-5xl font-bold font-heading text-[#23205D] mb-4">
-              Life at MIITJEE
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black font-heading text-[#23205D] mb-4 tracking-tight">
+              Life at <span className="text-[#1C1CA5]">MIITJEE</span>
             </h2>
-            <p className="text-gray-600 font-sans text-lg">
+            <p className="text-gray-600 font-sans text-lg md:text-xl max-w-2xl">
               Glimpses of our classrooms, events, and felicitations.
             </p>
           </motion.div>
@@ -40,9 +40,9 @@ export default function GalleryPreview({ images }: GalleryPreviewProps) {
           >
             <Link 
               href="/gallery" 
-              className="text-[#1C1CA5] font-semibold flex items-center gap-2 hover:text-[#23205D] transition-colors"
+              className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#FFD600] text-[#23205D] font-bold rounded-full hover:bg-[#E6C200] hover:-translate-y-1 transition-all shadow-md"
             >
-              View Full Gallery <ArrowRight className="w-4 h-4" />
+              View Full Gallery <ArrowRight className="w-5 h-5" />
             </Link>
           </motion.div>
         </div>
@@ -85,9 +85,9 @@ export default function GalleryPreview({ images }: GalleryPreviewProps) {
         <div className="mt-10 sm:hidden text-center">
           <Link 
             href="/gallery" 
-            className="inline-flex items-center gap-2 text-[#1C1CA5] font-semibold hover:text-[#23205D] transition-colors"
+            className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#FFD600] text-[#23205D] font-bold rounded-full hover:bg-[#E6C200] hover:-translate-y-1 transition-all shadow-md"
           >
-            View Full Gallery <ArrowRight className="w-4 h-4" />
+            View Full Gallery <ArrowRight className="w-5 h-5" />
           </Link>
         </div>
       </div>

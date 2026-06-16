@@ -15,6 +15,9 @@ const BranchesSection = dynamic(() => import("@/components/home/BranchesSection"
 const ManthanTeaser = dynamic(() => import("@/components/home/ManthanTeaser"));
 const FAQSection = dynamic(() => import("@/components/home/FAQSection"));
 const AdmissionForm = dynamic(() => import("@/components/home/AdmissionForm"));
+const FeaturedReelsSection = dynamic(() => import("@/components/home/featured-reels").then(mod => mod.FeaturedReelsSection));
+const FeaturedResultsSection = dynamic(() => import("@/components/home/FeaturedResults").then(mod => mod.FeaturedResultsSection));
+
 
 export default async function Home() {
   const supabase = await createClient();
@@ -26,6 +29,8 @@ export default async function Home() {
     { data: testimonials },
     { data: gallery },
     { data: branches },
+    { data: reels },
+    { data: resultImages },
   ] = await Promise.all([
     supabase
       .from("results")
@@ -57,6 +62,17 @@ export default async function Home() {
       .select("*")
       .eq("is_active", true)
       .order("sort_order", { ascending: true }),
+    supabase
+      .from("featured_reels")
+      .select("*")
+      .eq("is_published", true)
+      .order("sort_order", { ascending: true }),
+    supabase
+      .from("result_images")
+      .select("*")
+      .eq("is_published", true)
+      .eq("category", "snapshots_2026")
+      .order("sort_order", { ascending: true }),
   ]);
 
   return (
@@ -69,6 +85,8 @@ export default async function Home() {
       <WhyMiitjee />
       <FacultyShowcase faculty={faculty || []} />
       <TestimonialsSection testimonials={testimonials || []} />
+      <FeaturedReelsSection reels={reels || []} />
+      <FeaturedResultsSection results={resultImages || []} />
       <GalleryPreview images={gallery || []} />
       <BranchesSection branches={branches || []} />
       <ManthanTeaser />

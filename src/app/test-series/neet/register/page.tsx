@@ -3,7 +3,7 @@ import { CheckCircle2 } from 'lucide-react';
 
 export const metadata = {
   title: 'Register for Free NEET Mock Papers | MIITJEE',
-  description: 'Fill your details to get instant access to 5 free NEET mock test papers.',
+  description: 'Fill your details to get instant access to free NEET mock test papers.',
 };
 
 export default function RegisterPage() {
@@ -15,8 +15,8 @@ export default function RegisterPage() {
           {/* Left Column: Form */}
           <div className="w-full md:w-3/5 p-8 md:p-12">
             <div className="mb-8">
-              <h1 className="text-3xl font-bold font-poppins text-[#23205D] mb-2">
-                Get Your 5 Free NEET Mock Papers
+              <h1 className="text-3xl font-bold font-poppins text-[var(--navy)] mb-2">
+                Get Your Free NEET Mock Papers
               </h1>
               <p className="text-slate-500 font-medium text-sm md:text-base">
                 Fill your details — get instant access. No payment. No OTP.
@@ -27,7 +27,7 @@ export default function RegisterPage() {
           </div>
 
           {/* Right Column: Decorative & Info */}
-          <div className="hidden md:flex w-full md:w-2/5 bg-[#1C1CA5] text-white p-12 flex-col justify-between relative overflow-hidden">
+          <div className="hidden md:flex w-full md:w-2/5 bg-[var(--navy)] text-white p-12 flex-col justify-between relative overflow-hidden">
             {/* Background pattern */}
             <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
             
@@ -38,14 +38,14 @@ export default function RegisterPage() {
               
               <ul className="space-y-4 mb-12">
                 {[
-                  '5 Full-Syllabus Mock Papers (PDF)',
+                  'Full-Syllabus Mock Papers (PDF)',
                   'Detailed Answer Keys',
                   'Step-by-step Solutions',
                   'Based on NTA 2024 Pattern',
                   'Unlimited Access'
                 ].map((item, idx) => (
                   <li key={idx} className="flex items-start">
-                    <CheckCircle2 className="w-5 h-5 text-[#FEFD12] mr-3 shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-5 h-5 text-[var(--gold)] mr-3 shrink-0 mt-0.5" />
                     <span className="font-medium text-blue-50">{item}</span>
                   </li>
                 ))}
@@ -59,7 +59,7 @@ export default function RegisterPage() {
               <div className="flex items-center">
                 <div className="w-10 h-10 bg-blue-300 rounded-full mr-3 overflow-hidden relative">
                    {/* Placeholder avatar */}
-                   <div className="w-full h-full bg-[#FEFD12] flex items-center justify-center text-[#1C1CA5] font-bold">
+                   <div className="w-full h-full bg-[var(--gold)] flex items-center justify-center text-[var(--navy)] font-bold">
                      P
                    </div>
                 </div>

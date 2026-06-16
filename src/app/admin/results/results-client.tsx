@@ -42,6 +42,8 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { toast } from "sonner"
 import { upsertResult, deleteResult, toggleResultStatus } from "../actions"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { ResultImagesClient } from "./result-images-client"
 
 const resultSchema = z.object({
   id: z.string().optional(),
@@ -59,7 +61,7 @@ const resultSchema = z.object({
 
 type ResultFormValues = z.infer<typeof resultSchema>
 
-export function ResultsClient({ initialData }: { initialData: any[] }) {
+export function ResultsClient({ initialData, initialResultImages }: { initialData: any[], initialResultImages?: any[] }) {
   const [isOpen, setIsOpen] = useState(false)
   const [editingId, setEditingId] = useState<string | null>(null)
   
@@ -144,16 +146,25 @@ export function ResultsClient({ initialData }: { initialData: any[] }) {
   }
 
   return (
-    <div className="space-y-6">
-      <div className="flex justify-between items-center">
+    <Tabs defaultValue="student_profiles" className="w-full">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
         <div>
           <h2 className="text-2xl font-bold tracking-tight">Results</h2>
           <p className="text-muted-foreground">Manage student results and achievements.</p>
         </div>
-        <Dialog open={isOpen} onOpenChange={setIsOpen}>
-          <DialogTrigger asChild>
-            <Button onClick={openAdd}><Plus className="mr-2 h-4 w-4" /> Add Result</Button>
-          </DialogTrigger>
+        <TabsList>
+          <TabsTrigger value="student_profiles">Student Profiles</TabsTrigger>
+          <TabsTrigger value="result_images">Result Images</TabsTrigger>
+        </TabsList>
+      </div>
+
+      <TabsContent value="student_profiles">
+        <div className="space-y-6">
+          <div className="flex justify-end items-center">
+            <Dialog open={isOpen} onOpenChange={setIsOpen}>
+              <DialogTrigger asChild>
+                <Button onClick={openAdd}><Plus className="mr-2 h-4 w-4" /> Add Result</Button>
+              </DialogTrigger>
           <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
             <DialogHeader>
               <DialogTitle>{editingId ? "Edit Result" : "Add Result"}</DialogTitle>
@@ -415,5 +426,11 @@ export function ResultsClient({ initialData }: { initialData: any[] }) {
         </Table>
       </div>
     </div>
+      </TabsContent>
+
+      <TabsContent value="result_images">
+        <ResultImagesClient initialData={initialResultImages || []} />
+      </TabsContent>
+    </Tabs>
   )
 }

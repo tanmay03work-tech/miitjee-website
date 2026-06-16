@@ -29,7 +29,7 @@ export default function TestSeriesHubPage() {
                 NEET Mock Test Series
               </h2>
               <p className="text-slate-600 mb-6 font-inter">
-                Download 5 full-syllabus mock papers for NEET 2024 Re-exam. Prepared by expert MIITJEE faculty.
+                Download full-syllabus mock papers for NEET 2024 Re-exam. Prepared by expert MIITJEE faculty.
               </p>
               <div className="flex items-center text-[#1C1CA5] font-semibold">
                 Access Now <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>

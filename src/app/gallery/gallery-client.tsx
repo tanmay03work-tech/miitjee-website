@@ -12,28 +12,28 @@ type GalleryItem = {
   category: string | null;
 };
 
-const CATEGORIES = ["All", "Classroom", "Events", "Results", "Campus"];
+const CATEGORIES = ["Storyline", "Admission Open Highlights"];
 
 export default function GalleryClient({ initialItems }: { initialItems: GalleryItem[] }) {
-  const [activeCategory, setActiveCategory] = useState("All");
+  const [activeCategory, setActiveCategory] = useState("Storyline");
   const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
 
-  const filteredItems = activeCategory === "All"
-    ? initialItems
-    : initialItems.filter(item => item.category?.toLowerCase() === activeCategory.toLowerCase());
+  const filteredItems = initialItems.filter(
+    item => item.category?.toLowerCase() === activeCategory.toLowerCase()
+  );
 
   return (
     <>
       {/* Category Filter */}
-      <div className="flex flex-wrap justify-center gap-3 mb-12">
+      <div className="flex flex-wrap justify-center gap-4 mb-12">
         {CATEGORIES.map((category) => (
           <button
             key={category}
             onClick={() => setActiveCategory(category)}
-            className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${
+            className={`px-8 py-3 rounded-full text-sm font-bold transition-all duration-300 ${
               activeCategory === category
-                ? "bg-[#FEFD12] text-gray-900 shadow-md"
-                : "bg-white text-gray-600 hover:bg-gray-100 border border-gray-200"
+                ? "bg-[#FFD600] text-[#23205D] shadow-md scale-105"
+                : "bg-white text-gray-600 hover:bg-gray-50 hover:text-[#23205D] border border-gray-200"
             }`}
           >
             {category}

@@ -4,6 +4,8 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import StatsCounter from "@/components/about/StatsCounter";
 import * as motion from "framer-motion/client";
+import GalleryPreview from "@/components/home/GalleryPreview";
+import { createClient } from "@/lib/supabase/server";
 
 export const metadata: Metadata = {
   title: "About MIITJEE Classes | Best JEE NEET Coaching Patna",
@@ -24,7 +26,15 @@ export const metadata: Metadata = {
   },
 };
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const supabase = await createClient();
+  const { data: gallery } = await supabase
+    .from("gallery")
+    .select("*")
+    .eq("is_published", true)
+    .order("sort_order", { ascending: true })
+    .limit(8);
+
   return (
     <div className="flex flex-col min-h-screen">
       
@@ -400,6 +410,9 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* GALLERY SECTION */}
+      <GalleryPreview images={gallery || []} />
 
       {/* CTA Section */}
       <section style={{ background: 'var(--off-white)', padding: 'var(--section-pad)', textAlign: 'center' }}>
