@@ -518,7 +518,7 @@ export default function Navbar() {
                     className="flex items-center justify-center gap-2 w-full py-3.5 font-medium text-base text-brand-blue-dark bg-white border-2 border-brand-blue-dark rounded-xl hover:bg-brand-blue-dark/5 transition-all"
                   >
                     <Phone className="size-4" />
-                    📞 Call Us
+                    Call Us
                   </a>
                 </div>
               </div>

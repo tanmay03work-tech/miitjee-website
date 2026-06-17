@@ -54,22 +54,22 @@ export default async function NEETPage() {
                 NEET / AIIMS <br />
                 <span className="text-[var(--red)]">Medical Programme</span>
               </h1>
-              <p className="text-lg md:text-xl font-body max-w-2xl text-gray-300 mb-8 leading-relaxed">
-                Pursue your dream of becoming a doctor with our NCERT-focused curriculum and intensive test-series methodology.
+              <p className="text-lg md:text-xl font-body max-w-2xl text-gray-300 mb-8 leading-relaxed relative z-20">
+                Pursue your dream of becoming a doctor with our NCERT-focused curriculum and intensive test series methodology.
               </p>
               
               {/* Achievement Strip */}
-              <div className="flex flex-wrap items-center gap-4 mb-10">
-                <div className="flex items-center gap-2 bg-white/5 border border-[var(--red)]/30 px-4 py-2 rounded-full">
-                  <Activity className="w-4 h-4 text-[var(--red)]" />
+              <div className="flex flex-wrap gap-3 mb-10 relative z-20">
+                <div className="inline-flex items-center gap-2 bg-white/5 border border-[var(--red)]/30 px-4 py-2.5 rounded-full backdrop-blur-sm">
+                  <Activity className="w-4 h-4 text-[var(--red)] shrink-0" />
                   <span className="text-sm font-body font-semibold">300+ NEET Selections</span>
                 </div>
-                <div className="flex items-center gap-2 bg-white/5 border border-[var(--red)]/30 px-4 py-2 rounded-full">
-                  <Award className="w-4 h-4 text-[var(--red)]" />
-                  <span className="text-sm font-body font-semibold">1st Rank City Topper 2025</span>
+                <div className="inline-flex items-center gap-2 bg-white/5 border border-[var(--red)]/30 px-4 py-2.5 rounded-full backdrop-blur-sm">
+                  <Award className="w-4 h-4 text-[var(--red)] shrink-0" />
+                  <span className="text-sm font-body font-semibold">1st Rank City Topper</span>
                 </div>
-                <div className="flex items-center gap-2 bg-white/5 border border-[var(--red)]/30 px-4 py-2 rounded-full">
-                  <Star className="w-4 h-4 text-[var(--red)]" />
+                <div className="inline-flex items-center gap-2 bg-white/5 border border-[var(--red)]/30 px-4 py-2.5 rounded-full backdrop-blur-sm">
+                  <Star className="w-4 h-4 text-[var(--red)] shrink-0" />
                   <span className="text-sm font-body font-semibold">Free Mock Papers</span>
                 </div>
               </div>
