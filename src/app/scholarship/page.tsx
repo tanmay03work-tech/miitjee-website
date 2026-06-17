@@ -4,9 +4,9 @@ import InterestForm from "@/components/scholarship/InterestForm";
 import { CheckCircle2, ArrowDown } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "MANTHAN 2025 — Win 100% Scholarship | MIITJEE Classes",
+  title: "MANTHAN 2026 — Win 100% Scholarship | MIITJEE Classes",
   description:
-    "MIITJEE MANTHAN 2025 scholarship exam is coming soon. Register your interest to get notified when India's best coaching scholarship exam goes live.",
+    "MIITJEE MANTHAN 2026 scholarship exam is coming soon. Register your interest to get notified when India's best coaching scholarship exam goes live.",
 };
 
 const tiers = [

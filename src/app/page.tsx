@@ -12,6 +12,8 @@ const FacultyShowcase = dynamic(() => import("@/components/home/FacultyShowcase"
 const TestimonialsSection = dynamic(() => import("@/components/home/TestimonialsSection"));
 const GalleryPreview = dynamic(() => import("@/components/home/GalleryPreview"));
 const BranchesSection = dynamic(() => import("@/components/home/BranchesSection"));
+const HallOfFameStrip = dynamic(() => import("@/components/home/HallOfFameStrip").then(mod => mod.HallOfFameStrip));
+const AllTimeHallOfFame = dynamic(() => import("@/components/home/AllTimeHallOfFame").then(mod => mod.AllTimeHallOfFame));
 const ManthanTeaser = dynamic(() => import("@/components/home/ManthanTeaser"));
 const FAQSection = dynamic(() => import("@/components/home/FAQSection"));
 const AdmissionForm = dynamic(() => import("@/components/home/AdmissionForm"));
@@ -78,6 +80,7 @@ export default async function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       <HeroSection />
+      <AllTimeHallOfFame />
       <StatsSection />
       <ResultsShowcase results={results || []} />
       <TestSeriesCTA />

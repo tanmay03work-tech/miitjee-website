@@ -97,7 +97,7 @@ export default function MethodologyPage() {
                 style={{
                   fontFamily: 'var(--font-display)',
                   fontWeight: 900,
-                  fontSize: 'clamp(48px, 6vw, 72px)',
+                  fontSize: 'clamp(36px, 8vw, 72px)',
                   color: '#fff',
                   lineHeight: 1.1,
                   marginBottom: '1.5rem'
@@ -219,13 +219,7 @@ export default function MethodologyPage() {
                     initial={{ opacity: 0, x: idx % 2 === 0 ? -20 : 20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    className="flex items-start gap-6"
-                    style={{
-                      background: 'var(--navy)',
-                      padding: '2rem',
-                      borderRadius: '8px',
-                      border: '1px solid var(--navy-light)'
-                    }}
+                    className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 bg-[var(--navy)] p-6 sm:p-8 rounded-lg border border-[var(--navy-light)]"
                   >
                     <div 
                       className="flex-shrink-0 p-3 rounded-xl"

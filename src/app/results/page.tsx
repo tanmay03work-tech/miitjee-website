@@ -1,7 +1,9 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Trophy, Star } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
 import { ResultImageGrid } from "@/components/results/ResultImageGrid";
+import { AllTimeHallOfFame } from "@/components/home/AllTimeHallOfFame";
 
 export const metadata = {
   title: "Results & Selections | MIITJEE Classes",
@@ -78,19 +80,19 @@ export default async function ResultsHubPage() {
       </section>
 
       {/* FEATURED RESULTS — Topper Cards Grid */}
-      <section className="py-24 bg-white relative">
+      <section className="py-12 md:py-16 bg-white relative">
         <div className="container mx-auto px-4 max-w-6xl">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10">
             <h2 className="text-[var(--navy)] font-display font-black text-4xl md:text-5xl inline-block relative">
               Class of 2026 — Our Best Year Yet
               <div className="absolute -bottom-4 left-1/4 right-1/4 h-1 bg-[var(--gold)] rounded-full"></div>
             </h2>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             {/* Card 1: JEE 2026 */}
-            <div className="bg-gradient-to-br from-[var(--navy-mid)] to-[var(--navy)] rounded-[24px] p-8 md:p-12 border-t-4 border-[var(--gold)] shadow-xl flex flex-col justify-between card-hover relative overflow-hidden">
-              <div className="absolute top-0 right-0 p-8 opacity-20 pointer-events-none">
+            <div className="bg-gradient-to-br from-[var(--navy-mid)] to-[var(--navy)] rounded-[24px] p-6 md:p-8 border-t-4 border-[var(--gold)] shadow-xl flex flex-col justify-between card-hover relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-6 opacity-20 pointer-events-none">
                 <Trophy className="w-48 h-48 text-[var(--gold)]" />
               </div>
               <div className="relative z-10">
@@ -114,9 +116,9 @@ export default async function ResultsHubPage() {
               </div>
             </div>
 
-            <div className="flex flex-col gap-8">
+            <div className="flex flex-col gap-4 md:gap-6">
               {/* Card 2: NEET 2025 */}
-              <div className="bg-white rounded-[24px] p-8 border border-gray-100 shadow-lg border-t-4 border-t-[var(--red)] card-hover relative overflow-hidden">
+              <div className="bg-white rounded-[24px] p-6 border border-gray-100 shadow-lg border-t-4 border-t-[var(--red)] card-hover relative overflow-hidden">
                  <span className="inline-block bg-[var(--red)] text-white font-bold px-4 py-1.5 rounded-full text-sm tracking-wide mb-4 relative z-10">
                   NEET 2025
                 </span>
@@ -128,9 +130,9 @@ export default async function ResultsHubPage() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 flex-1">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 flex-1">
                 {/* Card 3: JEE collective */}
-                <div className="bg-[var(--navy)] rounded-[24px] p-8 shadow-lg flex flex-col justify-center items-center text-center card-hover border border-[var(--navy-light)] relative z-10">
+                <div className="bg-[var(--navy)] rounded-[24px] p-6 shadow-lg flex flex-col justify-center items-center text-center card-hover border border-[var(--navy-light)] relative z-10">
                   <div className="font-display font-black text-4xl md:text-5xl text-[var(--gold)] mb-3">
                     67 Students
                   </div>
@@ -143,7 +145,7 @@ export default async function ResultsHubPage() {
                 </div>
 
                 {/* Card 4: Success rate */}
-                <div className="bg-[var(--navy)] rounded-[24px] p-8 shadow-lg flex flex-col justify-center items-center text-center card-hover border border-[var(--navy-light)] relative z-10">
+                <div className="bg-[var(--navy)] rounded-[24px] p-6 shadow-lg flex flex-col justify-center items-center text-center card-hover border border-[var(--navy-light)] relative z-10">
                   <div className="font-display font-black text-5xl md:text-6xl text-[var(--gold)] mb-3">
                     77%
                   </div>
@@ -161,76 +163,7 @@ export default async function ResultsHubPage() {
       </section>
 
       {/* HISTORICAL TOPPERS */}
-      <section className="py-24 bg-[var(--navy)] relative" id="jee-hall-of-fame">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <div className="text-center mb-16">
-            <h2 className="text-white font-display font-black text-4xl md:text-5xl mb-4">
-              All-Time Hall of Fame
-            </h2>
-            <p className="text-[var(--text-muted)] text-lg max-w-2xl mx-auto">
-              Our consistent legacy of producing state and city toppers across decades.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Topper 1 */}
-            <div className="bg-[var(--navy-mid)] rounded-2xl border border-[var(--navy-light)] p-6 card-hover flex flex-col items-center text-center relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-1 bg-[var(--gold)]"></div>
-              <span className="inline-block bg-[var(--gold)] text-[var(--navy)] font-bold px-3 py-1 rounded-full text-xs tracking-wide mb-6 w-fit self-center">
-                JEE
-              </span>
-              <div className="w-20 h-20 bg-[var(--gold)] rounded-full flex items-center justify-center text-[var(--navy)] font-display font-black text-2xl mb-4 shadow-lg ring-4 ring-[var(--navy)]">
-                VK
-              </div>
-              <h3 className="text-white font-display font-extrabold text-xl mb-1">Vishnu Kumar</h3>
-              <p className="text-[var(--gold)] font-body font-semibold text-sm mb-2">AIR 202 IIT Kharagpur</p>
-              <p className="text-[var(--text-muted)] text-xs font-medium">1st Rank Jharkhand</p>
-            </div>
-
-            {/* Topper 2 */}
-            <div className="bg-[var(--navy-mid)] rounded-2xl border border-[var(--navy-light)] p-6 card-hover flex flex-col items-center text-center relative overflow-hidden" id="neet-hall-of-fame">
-              <div className="absolute top-0 left-0 w-full h-1 bg-[var(--red)]"></div>
-              <span className="inline-block bg-[var(--red)] text-white font-bold px-3 py-1 rounded-full text-xs tracking-wide mb-6 w-fit self-center">
-                NEET
-              </span>
-              <div className="w-20 h-20 bg-[var(--gold)] rounded-full flex items-center justify-center text-[var(--navy)] font-display font-black text-2xl mb-4 shadow-lg ring-4 ring-[var(--navy)]">
-                AJ
-              </div>
-              <h3 className="text-white font-display font-extrabold text-xl mb-1">Ansh Jain</h3>
-              <p className="text-[var(--gold)] font-body font-semibold text-sm mb-2">670/720</p>
-              <p className="text-[var(--text-muted)] text-xs font-medium">AIIMS Raipur</p>
-            </div>
-
-            {/* Topper 3 */}
-            <div className="bg-[var(--navy-mid)] rounded-2xl border border-[var(--navy-light)] p-6 card-hover flex flex-col items-center text-center relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-1 bg-[#22C55E]"></div>
-              <span className="inline-block bg-[#22C55E] text-white font-bold px-3 py-1 rounded-full text-xs tracking-wide mb-6 w-fit self-center">
-                Medical
-              </span>
-              <div className="w-20 h-20 bg-[var(--gold)] rounded-full flex items-center justify-center text-[var(--navy)] font-display font-black text-2xl mb-4 shadow-lg ring-4 ring-[var(--navy)]">
-                FS
-              </div>
-              <h3 className="text-white font-display font-extrabold text-xl mb-1">Fauzia Sultan</h3>
-              <p className="text-[var(--gold)] font-body font-semibold text-sm mb-2">607/720</p>
-              <p className="text-[var(--text-muted)] text-xs font-medium">NEET Selection</p>
-            </div>
-
-            {/* Topper 4 */}
-            <div className="bg-[var(--navy-mid)] rounded-2xl border border-[var(--navy-light)] p-6 card-hover flex flex-col items-center text-center relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-1 bg-[var(--gold)]"></div>
-              <span className="inline-block bg-[var(--gold)] text-[var(--navy)] font-bold px-3 py-1 rounded-full text-xs tracking-wide mb-6 w-fit self-center">
-                JEE
-              </span>
-              <div className="w-20 h-20 bg-[var(--gold)] rounded-full flex items-center justify-center text-[var(--navy)] font-display font-black text-2xl mb-4 shadow-lg ring-4 ring-[var(--navy)]">
-                PK
-              </div>
-              <h3 className="text-white font-display font-extrabold text-xl mb-1">Pabitra Kumar</h3>
-              <p className="text-[var(--gold)] font-body font-semibold text-sm mb-2">IIT Guwahati</p>
-              <p className="text-[var(--text-muted)] text-xs font-medium">JEE Advanced Selection</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <AllTimeHallOfFame showButton={false} />
 
       {/* DYNAMIC RESULTS GALLERIES */}
       <ResultImageGrid 

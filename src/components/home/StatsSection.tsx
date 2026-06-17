@@ -55,13 +55,8 @@ export default function StatsSection() {
   ];
 
   return (
-    <section 
-      style={{
-        background: 'var(--navy-mid)',
-        padding: 'var(--section-pad)',
-      }}
-    >
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-12 text-center">
+    <section className="py-12 md:py-16 bg-[var(--navy-mid)]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-12 text-center">
         {stats.map((stat, idx) => (
           <motion.div 
             key={idx}
@@ -75,7 +70,7 @@ export default function StatsSection() {
               style={{
                 fontFamily: 'var(--font-display)',
                 fontWeight: 900,
-                fontSize: 'clamp(48px, 6vw, 72px)',
+                fontSize: 'clamp(32px, 8vw, 72px)',
                 color: 'var(--gold)',
                 lineHeight: 1
               }}
@@ -83,11 +78,11 @@ export default function StatsSection() {
               <AnimatedNumber endValue={stat.value} suffix={stat.suffix} />
             </div>
             <div 
-              className="mt-4 mb-4"
+              className="mt-2 md:mt-4 mb-2 md:mb-4 px-2"
               style={{
                 fontFamily: 'var(--font-body)',
                 fontWeight: 500,
-                fontSize: '16px',
+                fontSize: 'clamp(12px, 3vw, 16px)',
                 color: 'var(--text-muted)',
                 textTransform: 'uppercase',
                 letterSpacing: '1px'

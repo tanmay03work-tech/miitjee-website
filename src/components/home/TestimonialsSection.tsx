@@ -57,7 +57,7 @@ export default function TestimonialsSection({ testimonials }: TestimonialsSectio
           {duplicatedTestimonials.map((testimonial, idx) => (
             <div 
               key={`${testimonial.id}-${idx}`}
-              className="w-[350px] sm:w-[400px] bg-white p-8 rounded-2xl shadow-sm border border-gray-100 border-l-4 border-l-[#1C1CA5] flex flex-col hover:shadow-lg transition-shadow duration-300"
+              className="w-[300px] sm:w-[400px] bg-white p-8 rounded-2xl shadow-sm border border-gray-100 border-l-4 border-l-[#1C1CA5] flex flex-col hover:shadow-lg transition-shadow duration-300"
             >
               <div className="flex gap-1 mb-4">
                 {[...Array(5)].map((_, i) => (

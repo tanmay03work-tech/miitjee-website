@@ -343,7 +343,7 @@ export default function AdmissionForm() {
                           Submitting…
                         </>
                       ) : (
-                        "Book Free Counselling — It's Free"
+                        <><span className="hidden sm:inline">Book Free Counselling &mdash; It&apos;s Free</span><span className="sm:hidden">Book Free Counselling</span></>
                       )}
                     </button>
                   </div>

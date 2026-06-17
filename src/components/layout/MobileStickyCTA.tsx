@@ -18,7 +18,7 @@ export default function MobileStickyCTA() {
         bottom: 0,
         left: 0,
         right: 0,
-        zIndex: 9999,
+        zIndex: 990,
         transform: show ? 'translateY(0)' : 'translateY(100%)',
         transition: 'transform 0.3s ease',
       }}

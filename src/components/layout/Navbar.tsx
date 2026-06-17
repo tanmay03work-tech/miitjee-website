@@ -503,7 +503,7 @@ export default function Navbar() {
                 </div>
 
                 {/* Bottom CTA Buttons */}
-                <div className="p-4 space-y-3 border-t border-gray-100">
+                <div className="p-4 pb-8 space-y-3 border-t border-gray-100">
                   <Link
                     href="/apply"
                     onClick={() => setMobileOpen(false)}

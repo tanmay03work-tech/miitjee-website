@@ -20,11 +20,11 @@ export const PRIMARY_EMAIL = "miitjeejamshedpur@gmail.com";
 export const PRIMARY_ADDRESS = "40 SNP Area, Near Sakchi Golchakkar, Jamshedpur - 831001";
 
 
-// Social links (placeholders — update when real)
+// Social links
 export const SOCIAL_LINKS = {
-  facebook: "https://facebook.com/miitjee",
-  instagram: "https://instagram.com/miitjee",
-  youtube: "https://youtube.com/@miitjee",
+  facebook: "https://www.facebook.com/miitjee.jamshedpur",
+  instagram: "https://www.instagram.com/miitjeeofficial/",
+  youtube: "https://www.youtube.com/@miitjeeclasses9414",
   twitter: "https://twitter.com/miitjee",
 } as const;
 

@@ -69,7 +69,7 @@ export default function InterestForm() {
           ✅ You&apos;re on the list!
         </h3>
         <p className="font-inter">
-          We&apos;ll notify you the moment MANTHAN 2025 goes live.
+          We&apos;ll notify you the moment MANTHAN 2026 goes live.
         </p>
       </div>
     );
@@ -78,7 +78,7 @@ export default function InterestForm() {
   return (
     <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-xl max-w-md mx-auto border border-gray-100">
       <h3 className="text-xl font-bold text-[#23205D] mb-6 font-poppins leading-tight">
-        Register your interest — we&apos;ll notify you the moment MANTHAN 2025 goes live.
+        Register your interest — we&apos;ll notify you the moment MANTHAN 2026 goes live.
       </h3>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
@@ -144,7 +144,7 @@ export default function InterestForm() {
           disabled={isSubmitting}
           className="w-full bg-[#FEFD12] hover:bg-[#e6e510] text-[#23205D] font-bold font-poppins py-3 px-6 rounded-lg transition-colors flex items-center justify-center disabled:opacity-70 mt-4"
         >
-          {isSubmitting ? "Submitting..." : "Notify Me When It Launches →"}
+          {isSubmitting ? "Submitting..." : "Notify Me When It Launches\u00A0\u2192"}
         </button>
       </form>
     </div>

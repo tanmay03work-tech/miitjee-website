@@ -65,9 +65,9 @@ export default function NeetLandingPage() {
             {/* CTA Button */}
             <Link
               href="/test-series/neet/register"
-              className="inline-flex items-center justify-center bg-[var(--gold)] hover:bg-yellow-400 text-[var(--navy)] text-lg md:text-xl font-display font-extrabold px-10 py-5 rounded-full shadow-[0_0_30px_rgba(255,214,0,0.4)] hover:shadow-[0_0_40px_rgba(255,214,0,0.6)] hover:-translate-y-1 transition-all w-full sm:w-auto"
+              className="inline-flex items-center justify-center whitespace-nowrap bg-[var(--gold)] hover:bg-yellow-400 text-[var(--navy)] text-base md:text-xl font-display font-extrabold px-6 py-4 md:px-10 md:py-5 rounded-full shadow-[0_0_30px_rgba(255,214,0,0.4)] hover:shadow-[0_0_40px_rgba(255,214,0,0.6)] hover:-translate-y-1 transition-all w-full sm:w-auto"
             >
-              Download All Papers Free →
+              Download All Papers Free&nbsp;&rarr;
             </Link>
             
             <p className="mt-5 text-white/50 text-[13px] font-medium tracking-wide">
@@ -108,9 +108,9 @@ export default function NeetLandingPage() {
           </p>
           <Link
             href="/test-series/neet/register"
-            className="inline-flex items-center justify-center bg-[var(--gold)] hover:bg-yellow-400 text-[var(--navy)] text-lg font-display font-extrabold px-10 py-5 rounded-full shadow-[0_0_25px_rgba(255,214,0,0.3)] hover:-translate-y-1 transition-all"
+            className="inline-flex items-center justify-center whitespace-nowrap bg-[var(--gold)] hover:bg-yellow-400 text-[var(--navy)] text-base md:text-lg font-display font-extrabold px-6 py-4 md:px-10 md:py-5 rounded-full shadow-[0_0_25px_rgba(255,214,0,0.3)] hover:-translate-y-1 transition-all"
           >
-            Get Your Free Papers →
+            Get Your Free Papers&nbsp;&rarr;
           </Link>
         </div>
       </section>

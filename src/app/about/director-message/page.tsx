@@ -12,7 +12,7 @@ const DIRECTORS = [
     name: "Mr. Prabhat Ranjan",
     role: "Director | HOD Chemistry - IIT Kharagpur",
     credential: "",
-    image: "/images/founders/prabhat ranjan.jpg",
+    image: "/images/founders/prabhat-ranjan-new.jpg",
   },
   {
     name: "Mr. Krishna Banerjee",
@@ -88,7 +88,7 @@ export default function DirectorMessagePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.1 }}
                 viewport={{ once: true }}
-                className="relative group rounded-[24px] overflow-hidden shadow-lg aspect-square w-full bg-[#f8fafc]"
+                className="relative group rounded-[24px] overflow-hidden shadow-lg aspect-[4/5] w-full bg-[#f8fafc]"
               >
                 <Image
                   src={director.image}
@@ -96,7 +96,7 @@ export default function DirectorMessagePage() {
                   fill
                   quality={100}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-contain object-bottom transition-transform duration-700 group-hover:scale-105 p-4"
+                  className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
                 />
                 
                 {/* Gradient overlay for contrast */}
@@ -119,9 +119,9 @@ export default function DirectorMessagePage() {
                   <p 
                     style={{
                       fontFamily: 'var(--font-body)',
-                      fontWeight: 600,
+                      fontWeight: 700,
                       fontSize: '12px',
-                      color: 'var(--gold-dim)',
+                      color: '#b45309', // Darker amber for visibility on white
                       textTransform: 'uppercase',
                       letterSpacing: '0.5px',
                       marginBottom: director.credential ? '8px' : '0'

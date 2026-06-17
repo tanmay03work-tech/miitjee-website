@@ -24,8 +24,7 @@ export default async function FoundationPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="bg-[var(--navy)] text-white pt-24 pb-20 relative overflow-hidden min-h-[75vh] flex items-center">
+      <section className="bg-[var(--navy)] text-white pt-32 pb-20 relative overflow-hidden min-h-[75vh] flex items-start lg:items-center">
         <div className="absolute inset-0 opacity-10 bg-[url('/pattern.svg')] bg-repeat"></div>
         
         {/* Subtle accent background shapes */}

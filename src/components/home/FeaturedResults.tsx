@@ -38,9 +38,9 @@ export function FeaturedResultsSection({ results }: FeaturedResultsProps) {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl lg:text-6xl font-black font-heading text-[#23205D] mb-4 flex items-center justify-center gap-3 tracking-tight"
+            className="text-4xl md:text-5xl lg:text-6xl font-black font-heading text-[#23205D] mb-4 flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-3 tracking-tight"
           >
-            Featured 
+            <span>Featured</span>
             <span className="text-[#1C1CA5]">
               Results 2026
             </span>
