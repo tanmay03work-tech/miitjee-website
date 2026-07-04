@@ -4,8 +4,8 @@ import { createClient } from "@/lib/supabase/server";
 import HeroSection from "@/components/home/HeroSection";
 import StatsSection from "@/components/home/StatsSection";
 import ResultsShowcase from "@/components/home/ResultsShowcase";
-import TestSeriesCTA from "@/components/home/TestSeriesCTA";
 import ProgramsOverview from "@/components/home/ProgramsOverview";
+import CollegePredictorCTA from "@/components/home/CollegePredictorCTA";
 
 const WhyMiitjee = dynamic(() => import("@/components/home/WhyMiitjee"));
 const FacultyShowcase = dynamic(() => import("@/components/home/FacultyShowcase"));
@@ -83,7 +83,7 @@ export default async function Home() {
       <AllTimeHallOfFame />
       <StatsSection />
       <ResultsShowcase results={results || []} />
-      <TestSeriesCTA />
+      <CollegePredictorCTA />
       <ProgramsOverview />
       <WhyMiitjee />
       <FacultyShowcase faculty={faculty || []} />
